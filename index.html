@@ -139,6 +139,7 @@
       display: flex;
       gap: 2rem;
       list-style: none;
+      align-items: center;
     }
 
     .nav-links a {
@@ -154,6 +155,21 @@
     .nav-links a:hover {
       color: var(--color-gold-light);
     }
+
+    .nav-badge {
+      display: inline-block;
+      padding: 0.28rem 0.85rem;
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-black);
+      background: var(--color-gold);
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background var(--transition-base);
+    }
+    .nav-badge:hover { background: var(--color-gold-light); color: var(--color-black); }
 
     @media (max-width: 768px) {
       .nav-links { display: none; }
@@ -1042,6 +1058,7 @@
       <li><a href="#terroir">Origin</a></li>
       <li><a href="#expressions">Expressions</a></li>
       <li><a href="#contact">Import</a></li>
+      <li><a href="cosecha-2026.html" class="nav-badge" aria-label="Ver Cosecha 2026 — El Calabacero">Cosecha 2026 ✦</a></li>
     </ul>
   </nav>
 

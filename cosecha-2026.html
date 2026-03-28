@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>San Venganza | Harvest 2026 — El Calabacero, Single Estate Blanco</title>
+  <meta name="description" content="San Venganza Harvest 2026. El Calabacero — a single-estate limited release from Rancho El Bellotero, Arandas, at 1,985 meters. 20,000 organic plants. 100,000 bottles. Unadulterated Blanco." />
+  <meta name="keywords" content="San Venganza 2026, El Calabacero, limited edition tequila, single estate blanco, Arandas highland tequila, organic tequila importer USA" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Inter:wght@300;400;500;600&family=Cinzel:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ================================================================
+       RESET & BASE — Identical to index.html
+    ================================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --color-black:        #0a0705;
+      --color-sepia-dark:   #150f08;
+      --color-sepia:        #1e1408;
+      --color-rust-dark:    #2a1204;
+      --color-rust:         #6b2b0a;
+      --color-gold:         #c9922a;
+      --color-gold-light:   #e8b84b;
+      --color-gold-pale:    #f5dfa0;
+      --color-agave:        #3d7a6e;
+      --color-agave-light:  #5fa896;
+      --color-crimson:      #8b1a1a;
+      --color-text:         #d4c5a8;
+      --color-text-muted:   #8a7c64;
+      --color-text-light:   #f0e6cc;
+
+      /* Brand-spec overrides from brief */
+      --color-agave-gold:   #D4AF37;
+      --color-soil-rust:    #8B4513;
+
+      --font-display:       'Cinzel', 'Georgia', serif;
+      --font-body:          'Inter', sans-serif;
+      --font-accent:        'IM Fell English', 'Georgia', serif;
+
+      --section-padding:    clamp(5rem, 10vw, 9rem);
+      --container-max:      1200px;
+      --border-radius:      4px;
+
+      --transition-base:    0.35s ease;
+      --transition-slow:    0.6s ease;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background-color: var(--color-black);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+
+    /* ================================================================
+       SCROLLBAR
+    ================================================================ */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--color-black); }
+    ::-webkit-scrollbar-thumb { background: var(--color-gold); border-radius: 3px; }
+
+    /* ================================================================
+       UTILITY
+    ================================================================ */
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 5vw, 3rem);
+    }
+
+    .section-label {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--color-agave-light);
+      margin-bottom: 1.25rem;
+    }
+    .section-label::before { content: '— '; }
+    .section-label::after  { content: ' —'; }
+
+    .gold-line {
+      display: block;
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+      margin: 1.5rem auto;
+    }
+
+    .headline-lg {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+    }
+
+    /* ================================================================
+       NAV — Exact match to index.html
+    ================================================================ */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.25rem clamp(1.25rem, 5vw, 3rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background var(--transition-base), padding var(--transition-base);
+    }
+
+    #nav.scrolled {
+      background: rgba(10, 7, 5, 0.95);
+      backdrop-filter: blur(10px);
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(201, 146, 42, 0.15);
+    }
+
+    .nav-brand {
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      font-weight: 700;
+      color: var(--color-gold-light);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .nav-brand span { color: var(--color-agave-light); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: color var(--transition-base);
+    }
+    .nav-links a:hover { color: var(--color-gold-light); }
+
+    .nav-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-black);
+      background: var(--color-gold);
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background var(--transition-base);
+    }
+    .nav-badge:hover { background: var(--color-gold-light); color: var(--color-black); }
+
+    @media (max-width: 768px) { .nav-links { display: none; } }
+
+    /* ================================================================
+       HERO — EL CALABACERO
+    ================================================================ */
+    #hero {
+      position: relative;
+      width: 100%;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      filter: brightness(0.38) saturate(0.7);
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at center bottom, rgba(139,69,19,0.45) 0%, transparent 65%),
+        linear-gradient(to top, rgba(10,7,5,1) 0%, rgba(10,7,5,0.0) 35%, rgba(10,7,5,0.55) 100%);
+    }
+
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      pointer-events: none;
+      opacity: 0.55;
+    }
+
+    /* Gold coordinate overlay */
+    .hero-coordinates {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 10vw, 9rem);
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      color: rgba(212, 175, 55, 0.07);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 960px;
+      padding: 0 clamp(1.25rem, 5vw, 3rem);
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--color-agave-light);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 1s 0.3s ease forwards;
+    }
+
+    .hero-coord-badge {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: clamp(0.8rem, 2vw, 1rem);
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      color: var(--color-gold-light);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      padding: 0.4rem 1.2rem;
+      margin-bottom: 1.75rem;
+      opacity: 0;
+      animation: fadeUp 1s 0.45s ease forwards;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 6.5vw, 5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+      margin-bottom: 0.75rem;
+      opacity: 0;
+      animation: fadeUp 1s 0.6s ease forwards;
+    }
+    .hero-title .accent {
+      color: var(--color-gold-light);
+      display: block;
+      text-shadow: 0 0 60px rgba(201,146,42,0.35), 0 0 120px rgba(201,146,42,0.15);
+    }
+
+    .hero-release-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 9vw, 7rem);
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-gold-light);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      animation: fadeUp 1s 0.78s ease forwards;
+      text-shadow:
+        0 0 60px rgba(201,146,42,0.5),
+        0 0 140px rgba(201,146,42,0.2);
+    }
+
+    .hero-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      justify-content: center;
+      margin: 1.5rem 0;
+      opacity: 0;
+      animation: fadeUp 1s 0.92s ease forwards;
+    }
+    .hero-divider::before,
+    .hero-divider::after {
+      content: '';
+      flex: 1;
+      max-width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-gold));
+    }
+    .hero-divider::after { background: linear-gradient(90deg, var(--color-gold), transparent); }
+    .hero-divider span {
+      font-size: 0.6rem;
+      color: var(--color-gold);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    .hero-sub {
+      font-family: var(--font-accent);
+      font-style: italic;
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--color-text-muted);
+      margin-bottom: 3rem;
+      line-height: 1.6;
+      opacity: 0;
+      animation: fadeUp 1s 1.05s ease forwards;
+    }
+
+    .hero-cta {
+      opacity: 0;
+      animation: fadeUp 1s 1.25s ease forwards;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 1.1rem 3rem;
+      background: transparent;
+      border: 1px solid var(--color-gold);
+      color: var(--color-gold-light);
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: color var(--transition-base), border-color var(--transition-base);
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--color-gold);
+      transform: translateX(-101%);
+      transition: transform var(--transition-base);
+      z-index: -1;
+    }
+    .btn-primary:hover { color: var(--color-black); }
+    .btn-primary:hover::before { transform: translateX(0); }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: fadeIn 1s 2s ease forwards;
+    }
+    .hero-scroll-hint span {
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--color-gold), transparent);
+      animation: scrollPulse 2s ease infinite;
+    }
+
+    /* ================================================================
+       STORY — FROM PUMPKINS TO PURITY
+    ================================================================ */
+    #story {
+      padding: var(--section-padding) 0;
+      background-color: var(--color-sepia-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    #story::before {
+      content: 'CALABACERO';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-display);
+      font-size: clamp(5rem, 14vw, 16rem);
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      color: rgba(201,146,42,0.025);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .story-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 7rem);
+      align-items: center;
+    }
+    @media (max-width: 768px) { .story-inner { grid-template-columns: 1fr; } }
+
+    .story-quote { position: relative; }
+    .story-quote-mark {
+      font-family: var(--font-display);
+      font-size: 8rem;
+      line-height: 0;
+      color: var(--color-gold);
+      opacity: 0.2;
+      position: absolute;
+      top: 2rem;
+      left: -1rem;
+    }
+    .story-tagline {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--color-text-light);
+      margin-bottom: 1.5rem;
+    }
+    .story-tagline em {
+      color: var(--color-gold-light);
+      font-style: normal;
+    }
+
+    .story-text {
+      font-family: var(--font-accent);
+      font-style: italic;
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      color: var(--color-text-muted);
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+    .story-closing {
+      font-family: var(--font-display);
+      font-size: clamp(0.85rem, 1.5vw, 1rem);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      border-left: 2px solid var(--color-gold);
+      padding-left: 1rem;
+    }
+
+    /* ================================================================
+       TECHNICAL DATA GRID
+    ================================================================ */
+    #specs {
+      padding: var(--section-padding) 0;
+      background-color: var(--color-black);
+      position: relative;
+    }
+    #specs::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg,
+        transparent 0%, var(--color-rust) 20%, var(--color-gold) 50%, var(--color-rust) 80%, transparent 100%
+      );
+    }
+
+    .specs-header {
+      text-align: center;
+      margin-bottom: clamp(3rem, 6vw, 5rem);
+    }
+
+    /* Lab grid */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: rgba(201,146,42,0.08);
+      border: 1px solid rgba(201,146,42,0.12);
+    }
+    @media (max-width: 600px) { .specs-grid { grid-template-columns: 1fr; } }
+
+    .spec-cell {
+      background: var(--color-sepia-dark);
+      padding: 2.75rem 2.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.75rem;
+      transition: background var(--transition-base);
+    }
+    .spec-cell:hover { background: var(--color-sepia); }
+
+    .spec-number-col {
+      flex-shrink: 0;
+      text-align: right;
+    }
+    .spec-big-num {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      color: var(--color-gold-light);
+      line-height: 1;
+      letter-spacing: 0.03em;
+    }
+    .spec-unit {
+      display: block;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-agave-light);
+      margin-top: 0.3rem;
+    }
+    .spec-divider-v {
+      width: 1px;
+      background: rgba(201,146,42,0.18);
+      align-self: stretch;
+      flex-shrink: 0;
+    }
+
+    .spec-field {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 0.35rem;
+    }
+    .spec-desc {
+      font-family: var(--font-accent);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+
+    /* Bottom full-width footer cell */
+    .spec-cell-wide {
+      grid-column: 1 / -1;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 2rem;
+      border-top: 1px solid rgba(201,146,42,0.12);
+    }
+    .spec-cell-wide .spec-big-num {
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      letter-spacing: 0.25em;
+    }
+    .batch-label {
+      font-family: var(--font-body);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+
+    /* ================================================================
+       TOPOGRAPHIC MAP / ORIGIN SECTION
+    ================================================================ */
+    #origin {
+      padding: var(--section-padding) 0;
+      background: linear-gradient(180deg, var(--color-black) 0%, var(--color-rust-dark) 50%, var(--color-black) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    #origin::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9922a' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .origin-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 7rem);
+      align-items: center;
+    }
+    @media (max-width: 768px) { .origin-inner { grid-template-columns: 1fr; } }
+
+    .origin-map-wrap {
+      position: relative;
+      border: 1px solid rgba(201,146,42,0.2);
+      overflow: hidden;
+    }
+    .origin-map-wrap img {
+      width: 100%;
+      height: clamp(300px, 40vw, 560px);
+      object-fit: cover;
+      object-position: center;
+      filter: brightness(0.8) sepia(0.4) saturate(0.85);
+      transition: transform var(--transition-slow);
+    }
+    .origin-map-wrap:hover img { transform: scale(1.03); }
+
+    /* Gold circle coordinate marker */
+    .origin-map-marker {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: clamp(80px, 14vw, 140px);
+      height: clamp(80px, 14vw, 140px);
+      border: 2px solid var(--color-gold-light);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: rgba(10,7,5,0.7);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 0 30px rgba(201,146,42,0.3), 0 0 60px rgba(201,146,42,0.1);
+    }
+    .origin-map-marker::before,
+    .origin-map-marker::after {
+      content: '';
+      position: absolute;
+      border: 1px solid rgba(201,146,42,0.25);
+      border-radius: 50%;
+    }
+    .origin-map-marker::before {
+      inset: -10px;
+      animation: markerPulse 3s ease infinite;
+    }
+    .origin-map-marker::after {
+      inset: -20px;
+      animation: markerPulse 3s ease 0.5s infinite;
+    }
+    @keyframes markerPulse {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 0.15; transform: scale(1.05); }
+    }
+
+    .marker-coord {
+      font-family: var(--font-display);
+      font-size: clamp(0.5rem, 1.2vw, 0.68rem);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--color-gold-light);
+      line-height: 1.6;
+    }
+    .marker-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--color-gold);
+      border-radius: 50%;
+      margin: 0.3rem auto;
+      box-shadow: 0 0 8px rgba(201,146,42,0.8);
+    }
+
+
+    .origin-manifesto {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--color-text-light);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.04em;
+    }
+    .origin-manifesto em {
+      color: var(--color-gold-light);
+      font-style: normal;
+    }
+    .origin-body {
+      font-family: var(--font-accent);
+      font-style: italic;
+      font-size: clamp(1rem, 1.5vw, 1.1rem);
+      color: var(--color-text-muted);
+      line-height: 1.9;
+      margin-bottom: 2rem;
+    }
+
+    .origin-facts {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(201,146,42,0.15);
+    }
+    .origin-fact {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    .fact-label {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-agave-light);
+      flex-shrink: 0;
+      min-width: 90px;
+    }
+    .fact-value {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--color-gold-light);
+    }
+
+    /* ================================================================
+       RESERVE / CTA SECTION
+    ================================================================ */
+    #reserve {
+      padding: var(--section-padding) 0;
+      background-color: var(--color-sepia-dark);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    #reserve::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg,
+        transparent 0%, var(--color-rust) 20%, var(--color-gold) 50%, var(--color-rust) 80%, transparent 100%
+      );
+    }
+    /* Faint watermark */
+    #reserve::after {
+      content: '2026';
+      position: absolute;
+      bottom: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-display);
+      font-size: clamp(10rem, 28vw, 28rem);
+      font-weight: 900;
+      color: rgba(201,146,42,0.025);
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .reserve-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .reserve-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 6vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+      margin-bottom: 0.75rem;
+    }
+    .reserve-title .gold { color: var(--color-gold-light); }
+
+    .reserve-sub {
+      font-family: var(--font-accent);
+      font-style: italic;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .reserve-allocation {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+    .alloc-item {
+      text-align: center;
+    }
+    .alloc-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+    .alloc-label {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+
+    .reserve-cta-group {
+      display: flex;
+      gap: 1.25rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .btn-reserve {
+      display: inline-block;
+      padding: 1.2rem 3.5rem;
+      background: var(--color-gold);
+      border: none;
+      color: var(--color-black);
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background var(--transition-base), transform 0.15s ease;
+    }
+    .btn-reserve:hover { background: var(--color-gold-light); }
+    .btn-reserve:active { transform: scale(0.98); }
+
+    .reserve-disclaimer {
+      font-size: 0.65rem;
+      color: rgba(138,124,100,0.5);
+      letter-spacing: 0.08em;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ================================================================
+       FOOTER — Exact match to index.html
+    ================================================================ */
+    footer {
+      background: var(--color-black);
+      border-top: 1px solid rgba(201,146,42,0.12);
+      padding: 2.5rem clamp(1.25rem, 5vw, 3rem);
+    }
+    .footer-inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      text-align: center;
+    }
+    .footer-brand { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; letter-spacing: 0.25em; color: var(--color-gold); }
+    .footer-tagline { font-family: var(--font-accent); font-style: italic; font-size: 0.82rem; color: var(--color-text-muted); }
+    .footer-divider { width: 40px; height: 1px; background: var(--color-gold); opacity: 0.3; }
+    .footer-meta { font-size: 0.65rem; letter-spacing: 0.12em; color: rgba(138,124,100,0.5); }
+    .legal-notice { font-size: 0.6rem; color: rgba(138,124,100,0.4); max-width: 500px; line-height: 1.6; }
+
+    /* ================================================================
+       ANIMATIONS
+    ================================================================ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(0.7); }
+    }
+
+    /* Intersection Observer reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.35s; }
+    .reveal-delay-4 { transition-delay: 0.5s; }
+
+  </style>
+</head>
+<body>
+
+  <!-- ================================================================
+       NAV
+  ================================================================ -->
+  <nav id="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-brand" aria-label="San Venganza Home">
+      <span style="font-size:0.6rem;letter-spacing:0.2em;color:var(--color-agave-light);font-family:var(--font-body);font-weight:500;margin-right:0.5rem;vertical-align:middle;">&#8592;</span>San <span>Venganza</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#story">Our Story</a></li>
+      <li><a href="index.html#terroir">Origin</a></li>
+      <li><a href="index.html#expressions">Expressions</a></li>
+      <li><a href="index.html" aria-label="Back to San Venganza main page">&#8592; Main Site</a></li>
+      <li><a href="#reserve" class="nav-badge" aria-label="Reserve 2026 Batch">Reserve 2026</a></li>
+    </ul>
+  </nav>
+
+  <!-- ================================================================
+       HERO — THE ALTITUDE OF VENGANCE
+  ================================================================ -->
+  <section id="hero" aria-label="Hero — El Calabacero Harvest 2026">
+
+    <div class="hero-bg">
+      <img
+        src="assets/calabacero-hero-highlands.png"
+        alt="Misty highland landscape of Rancho El Bellotero at 1985 meters, agave fields emerging through morning fog in the highlands of Arandas, Jalisco — the birthplace of El Calabacero 2026"
+        width="1800"
+        height="1200"
+      />
+    </div>
+    <div class="hero-grain" aria-hidden="true"></div>
+
+    <!-- Watermark coordinates -->
+    <div class="hero-coordinates" aria-hidden="true">20°40'N</div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Rancho El Bellotero · Arandas, Jalisco · Cosecha 2026</p>
+
+      <div class="hero-coord-badge">20°40′26.81″N &nbsp;&nbsp; 102°24′00.28″W</div>
+
+      <h1 class="hero-title">
+        The Altitude of Vengance.<br />
+        <span class="accent">1985 Meters Above Doubt.</span>
+      </h1>
+
+      <p class="hero-release-name" aria-label="El Calabacero">El Calabacero</p>
+
+      <div class="hero-divider" aria-hidden="true">
+        <span>Harvest 2026 · Single Estate · Blanco · 2026-V01</span>
+      </div>
+
+      <p class="hero-sub">
+        Harvest 2026. The 'El Calabacero' Limited Release.<br />
+        100,000 Bottles. 20,000 Organic Plants. One Plot. One Truth.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#story" class="btn-primary" aria-label="Discover the legend of El Calabacero">
+          Read the Legend
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+
+  </section>
+
+  <!-- ================================================================
+       STORY — FROM PUMPKINS TO PURITY
+  ================================================================ -->
+  <section id="story" aria-labelledby="story-heading">
+    <div class="container">
+      <div class="story-inner">
+
+        <div class="story-quote">
+          <div class="story-quote-mark" aria-hidden="true">"</div>
+          <h2 id="story-heading" class="story-tagline reveal">
+            From Pumpkins<br />
+            to <em>Purity.</em>
+          </h2>
+        </div>
+
+        <div class="story-body">
+          <p class="section-label reveal reveal-delay-1">The Legend of El Calabacero</p>
+
+          <p class="story-text reveal reveal-delay-2">
+            In the heart of Rancho El Bellotero, at a coordinate whispered only among the old jimadores, lies a plot baptized <em style="color:var(--color-gold-light);font-style:italic;">El Calabacero</em> — The Pumpkin Sower. Legend tells of a stubborn farmer who sowed pumpkins across the red volcanic clay, convinced he could tame the land's hunger. But the soil of the highlands does not negotiate. It waited.
+          </p>
+
+          <p class="story-text reveal reveal-delay-2">
+            Reaching skyward at 1,985 meters, this earth was always destined for Agave. The altitude bends the clouds, sharpens the cold of the night, and concentrates the sun into something fiercer than heat — it becomes discipline. The agave that endures this stress doesn't just grow; it crystallizes. Brix climbs. Sugars compact. The piña becomes heavy with purpose.
+          </p>
+
+          <p class="story-text reveal reveal-delay-3">
+            In 2026, San Venganza returns to this exact coordinate. Not to discover it — but to reclaim what was always owed. The soil of El Bellotero doesn't give. It yields only to the disciplined.
+          </p>
+
+          <p class="story-closing reveal reveal-delay-3">
+            "El Calabacero endured the pumpkins. Now it delivers revenge."
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       TECHNICAL SPECIFICATIONS GRID
+  ================================================================ -->
+  <section id="specs" aria-labelledby="specs-heading">
+    <div class="container">
+
+      <div class="specs-header reveal">
+        <span class="section-label">Technical Dossier</span>
+        <h2 id="specs-heading" class="headline-lg">The Numbers<br />Don't Lie.</h2>
+        <span class="gold-line" aria-hidden="true"></span>
+        <p style="max-width:520px;margin:0 auto;font-size:0.85rem;color:var(--color-text-muted);font-style:italic;font-family:var(--font-accent);">
+          Every measurement a declaration. Every figure a covenant with the connoisseur.
+        </p>
+      </div>
+
+      <div class="specs-grid">
+
+        <!-- Cell 1 -->
+        <div class="spec-cell reveal reveal-delay-1" aria-label="20,000 Certified Organic Agave Plants">
+          <div class="spec-number-col">
+            <div class="spec-big-num">20K</div>
+            <span class="spec-unit">Plants</span>
+          </div>
+          <div class="spec-divider-v" aria-hidden="true"></div>
+          <div class="spec-text-col">
+            <div class="spec-field">Field</div>
+            <p class="spec-desc">20,000 Certified Organic<br />Agave plants — each one a<br />guardian of the plot.</p>
+          </div>
+        </div>
+
+        <!-- Cell 2 -->
+        <div class="spec-cell reveal reveal-delay-2" aria-label="35 Kilograms average per piña">
+          <div class="spec-number-col">
+            <div class="spec-big-num">35</div>
+            <span class="spec-unit">kg / Piña</span>
+          </div>
+          <div class="spec-divider-v" aria-hidden="true"></div>
+          <div class="spec-text-col">
+            <div class="spec-field">Average Piña</div>
+            <p class="spec-desc">35 Kilograms of concentrated<br />soul. High Brix. Stress-forged<br />sugars from the altitude.</p>
+          </div>
+        </div>
+
+        <!-- Cell 3 -->
+        <div class="spec-cell reveal reveal-delay-3" aria-label="1,985 meters elevation">
+          <div class="spec-number-col">
+            <div class="spec-big-num">1,985</div>
+            <span class="spec-unit">Meters</span>
+          </div>
+          <div class="spec-divider-v" aria-hidden="true"></div>
+          <div class="spec-text-col">
+            <div class="spec-field">Elevation</div>
+            <p class="spec-desc">The peak of Los Altos.<br />Where the clouds form and<br />the agave fights back.</p>
+          </div>
+        </div>
+
+        <!-- Cell 4 -->
+        <div class="spec-cell reveal reveal-delay-4" aria-label="100,000 bottles of Blanco">
+          <div class="spec-number-col">
+            <div class="spec-big-num">100K</div>
+            <span class="spec-unit">Bottles</span>
+          </div>
+          <div class="spec-divider-v" aria-hidden="true"></div>
+          <div class="spec-text-col">
+            <div class="spec-field">Output</div>
+            <p class="spec-desc">100,000 Bottles (750ml),<br />Unadulterated Blanco.<br />No Additives. No Compromise.</p>
+          </div>
+        </div>
+
+        <!-- Wide batch footer cell -->
+        <div class="spec-cell spec-cell-wide reveal" aria-label="Batch 2026-V01, Single Estate">
+          <div class="batch-label">Batch Designation</div>
+          <div class="spec-big-num" style="letter-spacing:0.25em;color:var(--color-gold);">2026 — V01</div>
+          <div class="batch-label" style="margin-top:0.25rem;">Single Estate · El Calabacero · Rancho El Bellotero · Blanco · NOM Certified</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================================
+       TOPOGRAPHIC MAP / ORIGIN
+  ================================================================ -->
+  <section id="origin" aria-labelledby="origin-heading">
+    <div class="container">
+      <div class="origin-inner">
+
+        <!-- Map -->
+        <div class="origin-map-wrap reveal" aria-label="Topographic map of El Calabacero plot location">
+          <img
+            src="assets/calabacero-topo-map.png"
+            alt="Vintage hand-drawn topographical map of the Arandas highlands, Jalisco, with a gold-circle marker at coordinates 20°40'26.81"N 102°24'00.28"W — the exact location of El Calabacero plot"
+            width="800"
+            height="900"
+          />
+          <div class="origin-map-marker" aria-label="Exact GPS location of El Calabacero">
+            <div class="marker-coord">20°40′<br />26.81″N</div>
+            <div class="marker-dot" aria-hidden="true"></div>
+            <div class="marker-coord">102°24′<br />00.28″W</div>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="origin-text-block">
+          <p class="section-label reveal reveal-delay-1">Precise Terroir</p>
+
+          <h2 id="origin-heading" class="origin-manifesto reveal reveal-delay-1">
+            Arandas is our home.<br />
+            <em>El Calabacero</em><br />
+            is our truth.
+          </h2>
+
+          <p class="origin-body reveal reveal-delay-2">
+            This is not a blend. This is not a region. This is a coordinate — irrefutable, immovable, carved into the volcanic earth of Los Altos. Every bottle of the 2026 Cosecha can be traced to a single plot within Rancho El Bellotero, to a single campaign of 20,000 plants that answered the sky.
+          </p>
+
+          <p class="origin-body reveal reveal-delay-2">
+            No Additives. No Compromise. Only the Red Clay and the Sky.
+          </p>
+
+          <div class="origin-facts reveal reveal-delay-3">
+            <div class="origin-fact">
+              <span class="fact-label">Plot</span>
+              <span class="fact-value">El Calabacero</span>
+            </div>
+            <div class="origin-fact">
+              <span class="fact-label">Ranch</span>
+              <span class="fact-value">Rancho El Bellotero</span>
+            </div>
+            <div class="origin-fact">
+              <span class="fact-label">Coordinates</span>
+              <span class="fact-value">20°40′26.81″N &nbsp; 102°24′00.28″W</span>
+            </div>
+            <div class="origin-fact">
+              <span class="fact-label">Elevation</span>
+              <span class="fact-value">1,985 m above sea level</span>
+            </div>
+            <div class="origin-fact">
+              <span class="fact-label">Certification</span>
+              <span class="fact-value">100% Organic · CRT · USDA Export</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       RESERVE — CTA
+  ================================================================ -->
+  <section id="reserve" aria-labelledby="reserve-heading">
+    <div class="container">
+      <div class="reserve-inner">
+
+        <p class="section-label reveal">Exclusive Allocation · 2026</p>
+
+        <h2 id="reserve-heading" class="reserve-title reveal">
+          Claim a Piece<br />
+          of <span class="gold">2026.</span>
+        </h2>
+
+        <p class="reserve-sub reveal reveal-delay-1">
+          Exclusive allocation for US Importers and Private Collectors.<br />
+          100,000 bottles. One harvest. No second run.
+        </p>
+
+        <div class="reserve-allocation reveal reveal-delay-2">
+          <div class="alloc-item">
+            <div class="alloc-icon" aria-hidden="true">🏛️</div>
+            <div class="alloc-label">US Importers</div>
+          </div>
+          <div class="alloc-item">
+            <div class="alloc-icon" aria-hidden="true">🔑</div>
+            <div class="alloc-label">Private Collectors</div>
+          </div>
+          <div class="alloc-item">
+            <div class="alloc-icon" aria-hidden="true">🥃</div>
+            <div class="alloc-label">On-Premise Partners</div>
+          </div>
+        </div>
+
+        <div class="reserve-cta-group reveal reveal-delay-3">
+          <a href="index.html#contact" class="btn-reserve" id="reserve-batch-btn" aria-label="Reserve 2026 El Calabacero Batch">
+            Reserve 2026 Batch →
+          </a>
+          <a href="index.html#contact" class="btn-primary" aria-label="Request technical dossier">
+            Request Full Dossier
+          </a>
+        </div>
+
+        <p class="reserve-disclaimer reveal reveal-delay-4">
+          Allocations are strictly limited by production volume. San Venganza does not compromise quality to meet demand.<br />
+          Batch 2026-V01 · El Calabacero · Rancho El Bellotero · Arandas, Jalisco.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       FOOTER
+  ================================================================ -->
+  <footer aria-label="Site footer">
+    <div class="footer-inner">
+      <div class="footer-brand">San Venganza</div>
+      <div class="footer-tagline">"Pure Agave. No Apologies."</div>
+      <div class="footer-divider" aria-hidden="true"></div>
+
+      <!-- Page navigation -->
+      <nav aria-label="Footer page navigation" style="display:flex;gap:2rem;align-items:center;flex-wrap:wrap;justify-content:center;">
+        <a href="index.html"
+           style="font-family:var(--font-body);font-size:0.65rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--color-agave-light);text-decoration:none;transition:color 0.35s ease;"
+           onmouseover="this.style.color='var(--color-gold-light)'" onmouseout="this.style.color='var(--color-agave-light)'"
+           aria-label="Back to San Venganza main site">
+          &#8592; San Venganza
+        </a>
+        <span style="color:rgba(201,146,42,0.25);font-size:0.6rem;">&#10022;</span>
+        <a href="cosecha-2026.html"
+           style="font-family:var(--font-body);font-size:0.65rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--color-gold);text-decoration:none;"
+           aria-label="Cosecha 2026 El Calabacero — current page" aria-current="page">
+          Cosecha 2026 &#10022;
+        </a>
+      </nav>
+
+      <div class="footer-divider" aria-hidden="true"></div>
+      <div class="footer-meta">
+        © 2026 San Venganza · Cosecha El Calabacero · Arandas, Jalisco, México
+      </div>
+      <p class="legal-notice">
+        San Venganza is an ultra-premium certified organic tequila produced in Arandas,
+        Los Altos de Jalisco, Mexico. Please enjoy responsibly.
+        Must be of legal drinking age to access this content. Not for sale to minors.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ================================================================
+       JS
+  ================================================================ -->
+  <script>
+    // --- Nav scroll effect ---
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // --- Intersection Observer for reveal animations ---
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
