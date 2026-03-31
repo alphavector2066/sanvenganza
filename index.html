@@ -1,49 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>San Venganza | Organic Tequila from Arandas, Jalisco</title>
-  <meta name="description" content="San Venganza — Ultra-premium organic tequila from Arandas, Los Altos de Jalisco. No additives. Pure agave. A legacy reclaimed. Now available for import to the USA." />
-  <meta name="keywords" content="San Venganza, organic tequila, Arandas, Jalisco, additive-free tequila, premium tequila, tequila importer USA" />
+  <meta name="description"
+    content="San Venganza — Ultra-premium organic tequila from Arandas, Los Altos de Jalisco. No additives. Pure agave. A legacy reclaimed. Now available for import to the USA." />
+  <meta name="keywords"
+    content="San Venganza, organic tequila, Arandas, Jalisco, additive-free tequila, premium tequila, tequila importer USA" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Inter:wght@300;400;500;600&family=Cinzel:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Inter:wght@300;400;500;600&family=Cinzel:wght@400;600;700;900&display=swap"
+    rel="stylesheet" />
   <style>
     /* ================================================================
        RESET & BASE
     ================================================================ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --color-black:        #0a0705;
-      --color-sepia-dark:   #150f08;
-      --color-sepia:        #1e1408;
-      --color-rust-dark:    #2a1204;
-      --color-rust:         #6b2b0a;
-      --color-gold:         #c9922a;
-      --color-gold-light:   #e8b84b;
-      --color-gold-pale:    #f5dfa0;
-      --color-agave:        #3d7a6e;
-      --color-agave-light:  #5fa896;
-      --color-crimson:      #8b1a1a;
-      --color-text:         #d4c5a8;
-      --color-text-muted:   #8a7c64;
-      --color-text-light:   #f0e6cc;
-
-      --font-display:       'Cinzel', 'Georgia', serif;
-      --font-body:          'Inter', sans-serif;
-      --font-accent:        'IM Fell English', 'Georgia', serif;
-
-      --section-padding:    clamp(5rem, 10vw, 9rem);
-      --container-max:      1200px;
-      --border-radius:      4px;
-
-      --transition-base:    0.35s ease;
-      --transition-slow:    0.6s ease;
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    html { scroll-behavior: smooth; font-size: 16px; }
+    :root {
+      --color-black: #0a0705;
+      --color-sepia-dark: #150f08;
+      --color-sepia: #1e1408;
+      --color-rust-dark: #2a1204;
+      --color-rust: #6b2b0a;
+      --color-gold: #c9922a;
+      --color-gold-light: #e8b84b;
+      --color-gold-pale: #f5dfa0;
+      --color-agave: #3d7a6e;
+      --color-agave-light: #5fa896;
+      --color-crimson: #8b1a1a;
+      --color-text: #d4c5a8;
+      --color-text-muted: #8a7c64;
+      --color-text-light: #f0e6cc;
+
+      --font-display: 'Cinzel', 'Georgia', serif;
+      --font-body: 'Inter', sans-serif;
+      --font-accent: 'IM Fell English', 'Georgia', serif;
+
+      --section-padding: clamp(5rem, 10vw, 9rem);
+      --container-max: 1200px;
+      --border-radius: 4px;
+
+      --transition-base: 0.35s ease;
+      --transition-slow: 0.6s ease;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
 
     body {
       background-color: var(--color-black);
@@ -54,14 +68,27 @@
       overflow-x: hidden;
     }
 
-    img { display: block; max-width: 100%; height: auto; }
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
 
     /* ================================================================
        SCROLLBAR
     ================================================================ */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--color-black); }
-    ::-webkit-scrollbar-thumb { background: var(--color-gold); border-radius: 3px; }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--color-black);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--color-gold);
+      border-radius: 3px;
+    }
 
     /* ================================================================
        UTILITY
@@ -87,6 +114,7 @@
     .section-label::before {
       content: '— ';
     }
+
     .section-label::after {
       content: ' —';
     }
@@ -104,7 +132,9 @@
     ================================================================ */
     #nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
       padding: 1.25rem clamp(1.25rem, 5vw, 3rem);
       display: flex;
@@ -169,10 +199,16 @@
       text-decoration: none;
       transition: background var(--transition-base);
     }
-    .nav-badge:hover { background: var(--color-gold-light); color: var(--color-black); }
+
+    .nav-badge:hover {
+      background: var(--color-gold-light);
+      color: var(--color-black);
+    }
 
     @media (max-width: 768px) {
-      .nav-links { display: none; }
+      .nav-links {
+        display: none;
+      }
     }
 
     /* ================================================================
@@ -210,8 +246,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse at center bottom, rgba(107,43,10,0.35) 0%, transparent 70%),
-        linear-gradient(to top, rgba(10,7,5,1) 0%, rgba(10,7,5,0.05) 40%, rgba(10,7,5,0.4) 100%);
+        radial-gradient(ellipse at center bottom, rgba(107, 43, 10, 0.35) 0%, transparent 70%),
+        linear-gradient(to top, rgba(10, 7, 5, 1) 0%, rgba(10, 7, 5, 0.05) 40%, rgba(10, 7, 5, 0.4) 100%);
     }
 
     /* grain texture overlay */
@@ -274,8 +310,8 @@
       opacity: 0;
       animation: fadeUp 1s 0.75s ease forwards;
       text-shadow:
-        0 0 60px rgba(201,146,42,0.4),
-        0 0 120px rgba(201,146,42,0.2);
+        0 0 60px rgba(201, 146, 42, 0.4),
+        0 0 120px rgba(201, 146, 42, 0.2);
     }
 
     .hero-divider {
@@ -296,6 +332,7 @@
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--color-gold));
     }
+
     .hero-divider::after {
       background: linear-gradient(90deg, var(--color-gold), transparent);
     }
@@ -388,8 +425,17 @@
     }
 
     @keyframes scrollPulse {
-      0%, 100% { opacity: 0.3; transform: scaleY(1); }
-      50% { opacity: 1; transform: scaleY(0.7); }
+
+      0%,
+      100% {
+        opacity: 0.3;
+        transform: scaleY(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scaleY(0.7);
+      }
     }
 
     /* ================================================================
@@ -412,7 +458,7 @@
       font-size: clamp(8rem, 20vw, 20rem);
       font-weight: 900;
       letter-spacing: 0.05em;
-      color: rgba(201,146,42,0.03);
+      color: rgba(201, 146, 42, 0.03);
       white-space: nowrap;
       pointer-events: none;
       user-select: none;
@@ -426,7 +472,9 @@
     }
 
     @media (max-width: 768px) {
-      .story-inner { grid-template-columns: 1fr; }
+      .story-inner {
+        grid-template-columns: 1fr;
+      }
     }
 
     .story-quote {
@@ -487,7 +535,7 @@
       gap: 3rem;
       margin-top: 3rem;
       padding-top: 2rem;
-      border-top: 1px solid rgba(201,146,42,0.15);
+      border-top: 1px solid rgba(201, 146, 42, 0.15);
     }
 
     .story-stat {
@@ -536,7 +584,7 @@
     .terroir-image-wrap {
       position: relative;
       overflow: hidden;
-      border: 1px solid rgba(201,146,42,0.12);
+      border: 1px solid rgba(201, 146, 42, 0.12);
       border-radius: var(--border-radius);
     }
 
@@ -556,12 +604,10 @@
     .terroir-image-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(10,7,5,0.9) 0%,
-        rgba(10,7,5,0.3) 50%,
-        transparent 100%
-      );
+      background: linear-gradient(to top,
+          rgba(10, 7, 5, 0.9) 0%,
+          rgba(10, 7, 5, 0.3) 50%,
+          transparent 100%);
     }
 
     .terroir-image-caption {
@@ -591,13 +637,15 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
-      background: rgba(201,146,42,0.1);
+      background: rgba(201, 146, 42, 0.1);
       margin-top: 1px;
-      border: 1px solid rgba(201,146,42,0.1);
+      border: 1px solid rgba(201, 146, 42, 0.1);
     }
 
     @media (max-width: 640px) {
-      .terroir-pillars { grid-template-columns: 1fr; }
+      .terroir-pillars {
+        grid-template-columns: 1fr;
+      }
     }
 
     .terroir-pillar {
@@ -664,12 +712,16 @@
     }
 
     @media (max-width: 768px) {
-      .expressions-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+      .expressions-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+      }
     }
 
     .expression-card {
       position: relative;
-      border: 1px solid rgba(201,146,42,0.15);
+      border: 1px solid rgba(201, 146, 42, 0.15);
       background: rgba(21, 15, 8, 0.7);
       padding: 0;
       overflow: hidden;
@@ -678,7 +730,7 @@
     }
 
     .expression-card:hover {
-      border-color: rgba(201,146,42,0.5);
+      border-color: rgba(201, 146, 42, 0.5);
       transform: translateY(-6px);
     }
 
@@ -691,8 +743,13 @@
     }
 
     @media (max-width: 768px) {
-      .expression-card:nth-child(2) { transform: none; }
-      .expression-card:nth-child(2):hover { transform: translateY(-6px); }
+      .expression-card:nth-child(2) {
+        transform: none;
+      }
+
+      .expression-card:nth-child(2):hover {
+        transform: translateY(-6px);
+      }
     }
 
     .expression-image-wrap {
@@ -765,7 +822,7 @@
       color: var(--color-text-muted);
       line-height: 1.8;
       padding-top: 1rem;
-      border-top: 1px solid rgba(201,146,42,0.12);
+      border-top: 1px solid rgba(201, 146, 42, 0.12);
     }
 
     /* ================================================================
@@ -787,12 +844,11 @@
       right: 0;
       height: 3px;
       background: linear-gradient(90deg,
-        transparent 0%,
-        var(--color-rust) 20%,
-        var(--color-gold) 50%,
-        var(--color-rust) 80%,
-        transparent 100%
-      );
+          transparent 0%,
+          var(--color-rust) 20%,
+          var(--color-gold) 50%,
+          var(--color-rust) 80%,
+          transparent 100%);
     }
 
     .contact-grid {
@@ -803,7 +859,9 @@
     }
 
     @media (max-width: 900px) {
-      .contact-grid { grid-template-columns: 1fr; }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .contact-info-block {
@@ -857,7 +915,7 @@
     /* FORM */
     .contact-form {
       background: rgba(10, 7, 5, 0.5);
-      border: 1px solid rgba(201,146,42,0.15);
+      border: 1px solid rgba(201, 146, 42, 0.15);
       padding: clamp(2rem, 4vw, 3rem);
     }
 
@@ -876,7 +934,7 @@
       color: var(--color-text-muted);
       margin-bottom: 2rem;
       padding-bottom: 2rem;
-      border-bottom: 1px solid rgba(201,146,42,0.1);
+      border-bottom: 1px solid rgba(201, 146, 42, 0.1);
     }
 
     .form-row {
@@ -886,7 +944,9 @@
     }
 
     @media (max-width: 480px) {
-      .form-row { grid-template-columns: 1fr; }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
     }
 
     .form-group {
@@ -907,8 +967,8 @@
     .form-group textarea,
     .form-group select {
       width: 100%;
-      background: rgba(30,20,8,0.6);
-      border: 1px solid rgba(201,146,42,0.2);
+      background: rgba(30, 20, 8, 0.6);
+      border: 1px solid rgba(201, 146, 42, 0.2);
       padding: 0.85rem 1rem;
       font-family: var(--font-body);
       font-size: 0.85rem;
@@ -923,12 +983,12 @@
     .form-group textarea:focus,
     .form-group select:focus {
       border-color: var(--color-gold);
-      box-shadow: 0 0 0 3px rgba(201,146,42,0.1);
+      box-shadow: 0 0 0 3px rgba(201, 146, 42, 0.1);
     }
 
     .form-group input::placeholder,
     .form-group textarea::placeholder {
-      color: rgba(138,124,100,0.5);
+      color: rgba(138, 124, 100, 0.5);
       font-size: 0.8rem;
     }
 
@@ -966,7 +1026,7 @@
     ================================================================ */
     footer {
       background: var(--color-black);
-      border-top: 1px solid rgba(201,146,42,0.12);
+      border-top: 1px solid rgba(201, 146, 42, 0.12);
       padding: 2.5rem clamp(1.25rem, 5vw, 3rem);
     }
 
@@ -1001,12 +1061,14 @@
       font-weight: 500;
       letter-spacing: 0.15em;
     }
+
     .footer-email a {
       color: var(--color-gold);
       text-decoration: none;
-      border-bottom: 1px solid rgba(201,146,42,0.3);
+      border-bottom: 1px solid rgba(201, 146, 42, 0.3);
       transition: color var(--transition-base), border-color var(--transition-base);
     }
+
     .footer-email a:hover {
       color: var(--color-gold-light);
       border-bottom-color: var(--color-gold-light);
@@ -1015,7 +1077,7 @@
     .footer-meta {
       font-size: 0.65rem;
       letter-spacing: 0.12em;
-      color: rgba(138,124,100,0.5);
+      color: rgba(138, 124, 100, 0.5);
     }
 
     .footer-divider {
@@ -1027,7 +1089,7 @@
 
     .legal-notice {
       font-size: 0.6rem;
-      color: rgba(138,124,100,0.4);
+      color: rgba(138, 124, 100, 0.4);
       max-width: 500px;
       line-height: 1.6;
     }
@@ -1036,13 +1098,25 @@
        ANIMATIONS
     ================================================================ */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
 
     /* Intersection Observer fade-in */
@@ -1051,15 +1125,27 @@
       transform: translateY(32px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
+
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.35s; }
-    .reveal-delay-4 { transition-delay: 0.5s; }
 
+    .reveal-delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.35s;
+    }
+
+    .reveal-delay-4 {
+      transition-delay: 0.5s;
+    }
   </style>
 </head>
 
@@ -1075,7 +1161,8 @@
       <li><a href="#terroir">Origin</a></li>
       <li><a href="#expressions">Expressions</a></li>
       <li><a href="#contact">Import</a></li>
-      <li><a href="cosecha-2026.html" class="nav-badge" aria-label="Ver Cosecha 2026 — El Calabacero">Cosecha 2026 ✦</a></li>
+      <li><a href="cosecha-2026.html" class="nav-badge" aria-label="Ver Cosecha 2026 — El Calabacero">Cosecha 2026 ✦</a>
+      </li>
     </ul>
   </nav>
 
@@ -1085,12 +1172,9 @@
   <section id="hero" aria-label="Hero — The Reclaiming of Pure Agave">
 
     <div class="hero-bg">
-      <img
-        src="assets/hero_rider_agave_1774641363882.png"
+      <img src="assets/hero_rider_agave_1774641363882.png"
         alt="A lone Mexican rider on horseback silhouetted against a crimson sunset, surrounded by agave fields in Los Altos de Jalisco — the origin of San Venganza tequila"
-        width="1800"
-        height="1200"
-      />
+        width="1800" height="1200" />
     </div>
     <div class="hero-grain" aria-hidden="true"></div>
 
@@ -1147,14 +1231,14 @@
           <p class="section-label reveal reveal-delay-1">The Legend</p>
 
           <p class="story-text reveal reveal-delay-2">
-            From the red clay of Arandas, a rider returns. He does not gallop in triumph — he arrives in silence, 
-            the way a truth long buried resurfaces. The fields of highland agave once knew an unspoken covenant: 
+            From the red clay of Arandas, a rider returns. He does not gallop in triumph — he arrives in silence,
+            the way a truth long buried resurfaces. The fields of highland agave once knew an unspoken covenant:
             that what grows slowly in sacred earth, under thin air and fierce sun, must never be corrupted.
           </p>
 
           <p class="story-text reveal reveal-delay-2">
-            That covenant was broken. Additives, colorings, accelerants — the ghost of real tequila filled glasses 
-            across the world. San Venganza is the reckoning. A spirit distilled only from 100% certified organic 
+            That covenant was broken. Additives, colorings, accelerants — the ghost of real tequila filled glasses
+            across the world. San Venganza is the reckoning. A spirit distilled only from 100% certified organic
             Blue Weber agave, carrying nothing artificial into the bottle. Every drop is a declaration.
           </p>
 
@@ -1195,12 +1279,9 @@
       </div>
 
       <div class="terroir-image-wrap reveal">
-        <img
-          src="assets/soil_agave_split_1774641386646.png"
+        <img src="assets/soil_agave_split_1774641386646.png"
           alt="Split composition: the deep red volcanic clay soil of Los Altos de Jalisco on the left, and towering organic Blue Weber agave plants on the right — the two pillars of San Venganza tequila"
-          width="1400"
-          height="600"
-        />
+          width="1400" height="600" />
         <div class="terroir-image-overlay" aria-hidden="true"></div>
         <div class="terroir-image-caption">
           <p>Where the soil is red &amp; the standard is high.</p>
@@ -1214,7 +1295,7 @@
           <div class="pillar-icon" aria-hidden="true">🌱</div>
           <h3 class="pillar-title">Certified Organic</h3>
           <p class="pillar-desc">
-            Every agave plant is grown without synthetic pesticides or herbicides. 
+            Every agave plant is grown without synthetic pesticides or herbicides.
             Certified organic from field to bottle — a rarity in the category.
           </p>
         </div>
@@ -1223,7 +1304,7 @@
           <div class="pillar-icon" aria-hidden="true">🏔️</div>
           <h3 class="pillar-title">High Altitude Terroir</h3>
           <p class="pillar-desc">
-            At 2,100 meters above sea level, the cold nights and intense sun of Los Altos 
+            At 2,100 meters above sea level, the cold nights and intense sun of Los Altos
             stress the agave into producing extraordinary sugars and complexity.
           </p>
         </div>
@@ -1232,7 +1313,7 @@
           <div class="pillar-icon" aria-hidden="true">🚫</div>
           <h3 class="pillar-title">Additive-Free Vow</h3>
           <p class="pillar-desc">
-            No caramel coloring. No glycerin. No oak extract. No diffuser shortcuts. 
+            No caramel coloring. No glycerin. No oak extract. No diffuser shortcuts.
             What's in the bottle is what the land gave — and nothing more.
           </p>
         </div>
@@ -1252,8 +1333,10 @@
         <span class="section-label reveal">The Expressions</span>
         <h2 id="expressions-heading" class="headline-lg reveal">Three Faces of Truth.</h2>
         <span class="gold-line reveal" aria-hidden="true"></span>
-        <p class="reveal" style="max-width:520px;margin:0 auto;font-size:0.88rem;color:var(--color-text-muted);font-style:italic;">
-          Each expression of San Venganza is a chapter in the same story — agave, time, and the uncompromising discipline of craft.
+        <p class="reveal"
+          style="max-width:520px;margin:0 auto;font-size:0.88rem;color:var(--color-text-muted);font-style:italic;">
+          Each expression of San Venganza is a chapter in the same story — agave, time, and the uncompromising
+          discipline of craft.
         </p>
       </div>
 
@@ -1262,13 +1345,9 @@
         <!-- BLANCO -->
         <article class="expression-card reveal reveal-delay-1">
           <div class="expression-image-wrap">
-            <img
-              src="assets/botella-sanvenganza-mesa.webp"
+            <img src="assets/botella-sanvenganza-mesa.webp"
               alt="San Venganza Blanco — crystal clear, unaged organic tequila in a premium heavy glass bottle"
-              width="600"
-              height="900"
-              style="object-position: center;"
-            />
+              width="600" height="900" style="object-position: center;" />
           </div>
           <div class="expression-card-body">
             <p class="expression-type">San Venganza</p>
@@ -1285,13 +1364,9 @@
         <!-- REPOSADO -->
         <article class="expression-card reveal reveal-delay-2">
           <div class="expression-image-wrap">
-            <img
-              src="assets/sanvenganza_reposado.webp"
+            <img src="assets/sanvenganza_reposado.webp"
               alt="San Venganza Reposado — golden amber organic tequila rested in American oak barrels, in a heavy artisanal glass bottle"
-              width="600"
-              height="900"
-              style="object-position: center;"
-            />
+              width="600" height="900" style="object-position: center;" />
           </div>
           <div class="expression-card-body">
             <p class="expression-type">San Venganza</p>
@@ -1308,20 +1383,16 @@
         <!-- AÑEJO -->
         <article class="expression-card reveal reveal-delay-3">
           <div class="expression-image-wrap">
-            <img
-              src="assets/sanvenganza-anejo.webp"
+            <img src="assets/sanvenganza-anejo.webp"
               alt="San Venganza Añejo — deep amber, fully aged organic tequila in a premium heavy glass bottle"
-              width="600"
-              height="900"
-              style="object-position: center;"
-            />
+              width="600" height="900" style="object-position: center;" />
           </div>
           <div class="expression-card-body">
             <p class="expression-type">San Venganza</p>
             <h3 class="expression-name">Añejo</h3>
             <p class="expression-subtitle">Reclaimed · 18 Months in Oak</p>
             <p class="expression-notes">
-              Dark chocolate, smoked caramel, dried fig, and a long, warm finish of 
+              Dark chocolate, smoked caramel, dried fig, and a long, warm finish of
               black pepper and roasted agave heart. A spirit for contemplation.
               The rider's final word — measured, inevitable, and unforgettable.
             </p>
@@ -1348,8 +1419,8 @@
           <span class="gold-line reveal" style="margin-left:0;" aria-hidden="true"></span>
 
           <p class="contact-lead reveal">
-            San Venganza is available exclusively for select importers, distributors, 
-            and on-premise partners in the United States. Allocations are limited by 
+            San Venganza is available exclusively for select importers, distributors,
+            and on-premise partners in the United States. Allocations are limited by
             season and production volume. We do not compromise on quality to meet demand.
           </p>
 
@@ -1386,68 +1457,37 @@
           <h3 class="form-title">Request Information</h3>
           <p class="form-subtitle">For Importers, Distributors, and Exclusive Partners in the USA.</p>
 
-          <form
-            id="import-inquiry-form"
-            action="#"
-            method="POST"
-            novalidate
-            aria-label="Import partnership inquiry form"
-          >
+          <form id="import-inquiry-form" action="#" method="POST" novalidate
+            aria-label="Import partnership inquiry form">
 
             <div class="form-row">
               <div class="form-group">
                 <label for="contact-name">Full Name</label>
-                <input
-                  type="text"
-                  id="contact-name"
-                  name="name"
-                  placeholder="Your name"
-                  autocomplete="name"
-                  required
-                />
+                <input type="text" id="contact-name" name="name" placeholder="Your name" autocomplete="name" required />
               </div>
               <div class="form-group">
                 <label for="contact-email">Email Address</label>
-                <input
-                  type="email"
-                  id="contact-email"
-                  name="email"
-                  placeholder="you@company.com"
-                  autocomplete="email"
-                  required
-                />
+                <input type="email" id="contact-email" name="email" placeholder="you@company.com" autocomplete="email"
+                  required />
               </div>
             </div>
 
             <div class="form-group">
               <label for="contact-company">Company / Organization</label>
-              <input
-                type="text"
-                id="contact-company"
-                name="company"
-                placeholder="e.g. Prestige Spirits Imports LLC"
-                autocomplete="organization"
-              />
+              <input type="text" id="contact-company" name="company" placeholder="e.g. Prestige Spirits Imports LLC"
+                autocomplete="organization" />
             </div>
 
             <div class="form-group">
               <label for="contact-role">Your Role</label>
-              <input
-                type="text"
-                id="contact-role"
-                name="role"
-                placeholder="e.g. VP Procurement, Buyer, Owner"
-              />
+              <input type="text" id="contact-role" name="role" placeholder="e.g. VP Procurement, Buyer, Owner" />
             </div>
 
             <div class="form-group">
               <label for="contact-message">Message</label>
-              <textarea
-                id="contact-message"
-                name="message"
+              <textarea id="contact-message" name="message"
                 placeholder="Tell us about your market, distribution reach, and interest in San Venganza…"
-                required
-              ></textarea>
+                required></textarea>
             </div>
 
             <button type="submit" class="form-submit" id="form-submit-btn">
@@ -1471,16 +1511,17 @@
       <div class="footer-tagline">"Pure Agave. No Apologies."</div>
       <div class="footer-divider" aria-hidden="true"></div>
       <div class="footer-email">
-        <a href="mailto:concierge@sanvenganza.com" aria-label="Email San Venganza concierge">concierge@sanvenganza.com</a>
+        <a href="mailto:concierge@sanvenganza.com"
+          aria-label="Email San Venganza concierge">concierge@sanvenganza.com</a>
       </div>
       <div class="footer-divider" aria-hidden="true"></div>
       <div class="footer-meta">
         © 2024 San Venganza · All Rights Reserved · Arandas, Jalisco, México
       </div>
       <p class="legal-notice">
-        San Venganza is an ultra-premium organic tequila produced in Arandas, 
-        Los Altos de Jalisco, Mexico. Please enjoy responsibly. 
-        Must be of legal drinking age to access this content. 
+        San Venganza is an ultra-premium organic tequila produced in Arandas,
+        Los Altos de Jalisco, Mexico. Please enjoy responsibly.
+        Must be of legal drinking age to access this content.
         Not for sale to minors.
       </p>
     </div>
@@ -1515,7 +1556,7 @@
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const name  = document.getElementById('contact-name').value.trim();
+      const name = document.getElementById('contact-name').value.trim();
       const email = document.getElementById('contact-email').value.trim();
       if (!name || !email) {
         alert('Please fill in your name and email to continue.');
@@ -1544,4 +1585,5 @@
   </script>
 
 </body>
+
 </html>
