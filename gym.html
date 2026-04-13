@@ -743,11 +743,12 @@
             
             const contentDiv = card.querySelector('.exercise-content');
             const today = new Date().toISOString().split('T')[0];
+            const isBarbell = nameEn.toLowerCase().includes('barbell');
             
             const trackerHtml = `
                 <div class="tracker-container">
                     <h4>Historial de Cargas</h4>
-                    <table class="tracker-table">
+                    <table class="tracker-table" style="${isBarbell ? 'margin-bottom: 5px;' : ''}">
                         <thead>
                             <tr>
                                 <th>Fecha</th>
@@ -759,6 +760,7 @@
                             <tr><td colspan="3" style="text-align:center; color: #555;">No hay datos registrados aún...</td></tr>
                         </tbody>
                     </table>
+                    ${isBarbell ? '<div style="font-family: monospace; color: #777; font-size: 0.8rem; margin-bottom: 20px;">* Las barras pesan 45lb</div>' : ''}
                     <div class="input-row">
                         <input type="date" id="date-${exerciseId}" class="tracker-input" value="${today}" style="width: 140px;">
                         <input type="number" id="weight-${exerciseId}" class="tracker-input" placeholder="Lbs" step="2.5" style="width: 90px;">
@@ -818,8 +820,11 @@
             return;
         }
 
+        // Mostrar solo los 4 récords más recientes para mantener limpio el diseño
+        const recentRecords = records.slice(-4);
+
         tbody.innerHTML = '';
-        records.forEach(record => {
+        recentRecords.forEach(record => {
             const tr = `
                 <tr>
                     <td>${record.date}</td>
