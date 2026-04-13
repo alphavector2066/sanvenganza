@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Filiberto | Cirugía Plástica & Estética de Alta Gama</title>
+  <meta name="description"
+    content="Dr. Filiberto — Master en escultura anatómica y cirugía estética avanzada. Descubra la excelencia en rejuvenecimiento y armonía corporal en nuestra exclusiva clínica de Guadalajara." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* ================================================================
+       RESET & BASE
+    ================================================================ */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-primary: #1a1a1a;
+      --color-secondary: #fdfcf8;
+      --color-gold: #c5a059;
+      --color-gold-muted: #e5d1a7;
+      --color-text: #333333;
+      --color-text-muted: #666666;
+      --color-white: #ffffff;
+      --color-light-gray: #f4f4f4;
+
+      --font-display: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+
+      --container-max: 1200px;
+      --section-padding: clamp(5rem, 10vw, 8rem);
+      --transition-base: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--color-secondary);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+      font-weight: 300;
+    }
+
+    /* ================================================================
+       UTILITY & ANIMATIONS
+    ================================================================ */
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: var(--transition-base);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-gold {
+      background-color: var(--color-gold);
+      color: var(--color-white);
+    }
+
+    .btn-gold:hover {
+      background-color: var(--color-primary);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--color-gold);
+      color: var(--color-gold);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background-color: var(--color-gold);
+      color: var(--color-white);
+    }
+
+    /* ================================================================
+       HEADER
+    ================================================================ */
+    #header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1.5rem 0;
+      transition: var(--transition-base);
+      background: rgba(253, 252, 248, 0);
+    }
+
+    #header.scrolled {
+      background: rgba(253, 252, 248, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 0;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    .logo span {
+      color: var(--color-gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--color-text);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: var(--transition-base);
+    }
+
+    .nav-links a:hover {
+      color: var(--color-gold);
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+    }
+
+    @media (max-width: 992px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* ================================================================
+       HERO
+    ================================================================ */
+    #hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background-color: #f1ede4;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 600px;
+    }
+
+    .hero-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 5rem);
+      line-height: 1.1;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--color-text-muted);
+      margin-bottom: 3rem;
+      max-width: 450px;
+    }
+
+    .hero-img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 55%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, var(--color-secondary) 30%, transparent 70%);
+      z-index: 2;
+    }
+
+    @media (max-width: 768px) {
+      .hero-img {
+        width: 100%;
+        opacity: 0.3;
+      }
+      .hero-overlay {
+        background: linear-gradient(to top, var(--color-secondary) 20%, transparent 100%);
+      }
+      .hero-content {
+        text-align: center;
+        margin: 0 auto;
+      }
+    }
+
+    /* ================================================================
+       ABOUT
+    ================================================================ */
+    #about {
+      padding: var(--section-padding) 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      color: var(--color-primary);
+    }
+
+    .about-text p {
+      margin-bottom: 1.5rem;
+      color: var(--color-text-muted);
+      font-size: 1.05rem;
+    }
+
+    .about-signature {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--color-gold);
+      margin-top: 2rem;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+
+    .about-img-wrap img {
+      border-radius: 4px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-accent {
+      position: absolute;
+      bottom: -30px;
+      left: -30px;
+      width: 150px;
+      height: 150px;
+      background-color: var(--color-gold);
+      z-index: -1;
+      opacity: 0.2;
+    }
+
+    @media (max-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ================================================================
+       SPECIALTIES
+    ================================================================ */
+    #specialties {
+      padding: var(--section-padding) 0;
+      background-color: var(--color-white);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      color: var(--color-gold);
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    .specialty-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .specialty-card {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      background-color: var(--color-primary);
+    }
+
+    .specialty-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s ease;
+      opacity: 0.7;
+    }
+
+    .specialty-card:hover img {
+      transform: scale(1.08);
+      opacity: 0.5;
+    }
+
+    .specialty-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 2.5rem;
+      z-index: 10;
+      color: var(--color-white);
+    }
+
+    .specialty-content h3 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .specialty-content p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      max-width: 200px;
+    }
+
+    @media (max-width: 992px) {
+      .specialty-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 576px) {
+      .specialty-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ================================================================
+       CLINIC / EXPERIENCE
+    ================================================================ */
+    #experience {
+      padding: var(--section-padding) 0;
+      background-color: var(--color-secondary);
+    }
+
+    .exp-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+
+    .exp-image {
+      width: 100%;
+      height: 70vh;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .exp-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+    }
+
+    .exp-content h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    .exp-content p {
+      color: var(--color-text-muted);
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+      .exp-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    /* ================================================================
+       FOOTER
+    ================================================================ */
+    #footer {
+      padding: 5rem 0;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .footer-brand h2 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-about {
+      color: rgba(255, 255, 255, 0.6);
+      max-width: 300px;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links h4 {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 1.5rem;
+      color: var(--color-gold);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: var(--transition-base);
+    }
+
+    .footer-links a:hover {
+      color: var(--color-gold);
+      padding-left: 5px;
+    }
+
+    .footer-bottom {
+      margin-top: 5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="container nav-inner">
+      <a href="#" class="logo">DR.<span>FILIBERTO</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">Filosofía</a></li>
+        <li><a href="#specialties">Especialidades</a></li>
+        <li><a href="#experience">La Clínica</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="#contact" class="btn btn-gold">Consulta Directa</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container hero-content">
+      <span class="hero-label reveal">Cirujano Plástico Certificado</span>
+      <h1 class="hero-title reveal">El Arte de la <br><span>Perfección Anatomica</span></h1>
+      <p class="hero-subtitle reveal">
+        Fusión de precisión médica y visión artística para revelar su mejor versión. Más de 15 años esculpiendo confianza.
+      </p>
+      <div class="reveal">
+        <a href="#specialties" class="btn btn-gold">Explorar Procedimientos</a>
+        <a href="#about" class="btn btn-outline" style="margin-left: 1rem;">Mi Historia</a>
+      </div>
+    </div>
+    <div class="hero-overlay"></div>
+    <img src="/Users/jm/.gemini/antigravity/brain/1cd7a5e4-908c-4b1d-b8b1-b01de395c0fb/dr_filiberto_headshot_1776110607372.png" 
+         alt="Dr. Filiberto" class="hero-img">
+  </section>
+
+  <!-- ABOUT / PHILOSOPHY -->
+  <section id="about">
+    <div class="container about-grid">
+      <div class="about-img-wrap reveal">
+        <img src="/Users/jm/.gemini/antigravity/brain/1cd7a5e4-908c-4b1d-b8b1-b01de395c0fb/dr_filiberto_headshot_1776110607372.png" alt="Dr. Filiberto Portrait">
+        <div class="about-accent"></div>
+      </div>
+      <div class="about-text reveal">
+        <p style="color: var(--color-gold); font-weight: 600; letter-spacing: 0.2rem; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 1rem;">El Cirujano</p>
+        <h2>Ciencia que Esculpe, <br>Arte que Sana</h2>
+        <p>
+          El Dr. Filiberto es reconocido internacionalmente por su enfoque vanguardista en la cirugía plástica, donde cada intervención es tratada como una pieza de arte única. Su filosofía se basa en la "Naturalidad Absoluta": resultados que no parecen operados, sino simplemente perfectos.
+        </p>
+        <p>
+          Formado en los centros médicos más prestigiosos de Europa y Latinoamérica, ha perfeccionado técnicas de Lipocirugía de Alta Definición y Rinoplastia Estructural que minimizan el tiempo de recuperación mientras maximizan la armonía estética.
+        </p>
+        <div class="about-signature">Dr. Filiberto</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECIALTIES -->
+  <section id="specialties">
+    <div class="container">
+      <div class="section-header reveal">
+        <p>Nuestros Servicios</p>
+        <h2>Especialidades Premium</h2>
+      </div>
+      <div class="specialty-grid">
+        <!-- Card 1 -->
+        <div class="specialty-card reveal">
+          <img src="/Users/jm/.gemini/antigravity/brain/1cd7a5e4-908c-4b1d-b8b1-b01de395c0fb/liposculpture_abstract_art_1776110870788.png" alt="Liposucción HD">
+          <div class="specialty-content">
+            <h3>Lipoescultura HD</h3>
+            <p>Definición muscular y contorno atlético.</p>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="specialty-card reveal" style="transition-delay: 0.2s;">
+          <img src="/Users/jm/.gemini/antigravity/brain/1cd7a5e4-908c-4b1d-b8b1-b01de395c0fb/rhinoplasty_abstract_beauty_1776110846947.png" alt="Rinoplastia">
+          <div class="specialty-content">
+            <h3>Rinoplastia</h3>
+            <p>Equilibrio facial y funcionalidad respiratoria.</p>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="specialty-card reveal" style="transition-delay: 0.4s;">
+          <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc2069?auto=format&fit=crop&q=80&w=800" alt="Facial Rejuvenation">
+          <div class="specialty-content">
+            <h3>Facial Lift</h3>
+            <p>Rejuvenecimiento profundo sin perder expresión.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLINIC / EXPERIENCE -->
+  <section id="experience">
+    <div class="container exp-inner">
+      <img src="/Users/jm/.gemini/antigravity/brain/1cd7a5e4-908c-4b1d-b8b1-b01de395c0fb/luxury_clinic_reception_1776110627705.png" alt="Luxurious Clinic Reception" class="exp-image reveal">
+      <div class="exp-content reveal">
+        <h2>Una Experiencia <br>Fuera de lo Ordinario</h2>
+        <div>
+          <p>
+            En nuestra clínica en el corazón de Guadalajara, no solo transformamos cuerpos; cuidamos de su paz mental. Cada espacio ha sido diseñado bajo principios de neuro-arquitectura para proporcionar calma y seguridad desde el primer paso.
+          </p>
+          <p style="margin-top: 1.5rem;">
+            Tecnología de última generación, atención personalizada 24/7 y la máxima discreción son los pilares de la experiencia Dr. Filiberto.
+          </p>
+          <a href="#" class="btn btn-outline" style="margin-top: 2.5rem;">Agendar Recorrido Virtual</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo" style="color: var(--color-white);">DR.<span>FILIBERTO</span></a>
+        <p class="footer-about">
+          Cirugía Plástica, Estética y Reconstructiva de Vanguardia. Resultados que inspiran confianza y belleza natural.
+        </p>
+      </div>
+      <div class="footer-links">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#about">Filosofía</a></li>
+          <li><a href="#specialties">Servicios</a></li>
+          <li><a href="#experience">Clínica</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:info@dr-html.com">info@dr-html.com</a></li>
+          <li><a href="tel:+523330000000">+52 (33) 3000 0000</a></li>
+          <li><a href="#">Guadalajara, Jal. México</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Dr. Filiberto Aesthetic Surgery. Todos los derechos reservados.</p>
+      <p>Diseñado por Correlativa Antigravity</p>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal animations on scroll
+    window.addEventListener('scroll', () => {
+      const reveals = document.querySelectorAll('.reveal');
+      reveals.forEach(reveal => {
+        const windowHeight = window.innerHeight;
+        const revealTop = reveal.getBoundingClientRect().top;
+        const revealPoint = 150;
+        if (revealTop < windowHeight - revealPoint) {
+          reveal.add('active');
+        }
+      });
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Initial check for reveal
+    window.dispatchEvent(new Event('scroll'));
+  </script>
+</body>
+
+</html>
