@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WARRIOR v4 | Road to Santa Cruz</title>
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Oswald:wght@500;700&family=Montserrat:ital,wght@1,300&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #030303;
+            --card-bg: #0d0d0d;
+            --card-border: #222222;
+            --neon-green: #ccff00;
+            --neon-blue: #00f3ff;
+            --text-white: #ffffff;
+            --text-dim: #999999;
+            --spacing-xl: 100px;
+            --spacing-lg: 60px;
+            --spacing-md: 40px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+            padding-bottom: var(--spacing-xl);
+        }
+
+        /* Hero Header */
+        header {
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(3,3,3,1)), 
+                        url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1470&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center top;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .version-tag {
+            background: transparent;
+            color: var(--neon-blue);
+            border: 1px solid var(--neon-blue);
+            padding: 8px 20px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 5.5rem;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+            color: var(--text-white);
+            line-height: 1.1;
+            margin-bottom: 10px;
+            text-shadow: 0 0 40px rgba(204, 255, 0, 0.2);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        /* Countdown Section */
+        #countdown-section {
+            background: linear-gradient(135deg, #0a0a0a, #111111);
+            border-top: 2px solid var(--neon-green);
+            border-bottom: 2px solid var(--neon-green);
+            padding: var(--spacing-md) 20px;
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            box-shadow: 0 0 30px rgba(204, 255, 0, 0.05);
+        }
+
+        .ironman-link {
+            display: inline-block;
+            color: var(--neon-blue);
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            transition: color 0.3s ease;
+        }
+
+        .ironman-link:hover {
+            color: var(--text-white);
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .time-box {
+            background: #000;
+            border: 1px solid #333;
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 120px;
+        }
+
+        .time-box span {
+            display: block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5rem;
+            color: var(--neon-green);
+            line-height: 1;
+        }
+
+        .time-box label {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            display: block;
+        }
+
+        /* Quote Section */
+        #quote-container {
+            max-width: 900px;
+            margin: 0 auto var(--spacing-xl) auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .quote-title {
+            color: var(--neon-blue);
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        #daily-quote {
+            font-size: 2rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--text-white);
+            line-height: 1.4;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* Advice Section */
+        .master-advice {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .advice-box {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
+            transition: transform 0.3s;
+        }
+
+        .advice-box:hover {
+            transform: translateY(-5px);
+            border-color: #333;
+        }
+
+        .advice-box h2 {
+            color: var(--neon-green);
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .advice-box p { color: var(--text-dim); font-size: 1.05rem; }
+
+        /* Workout Sections */
+        .day-section { margin-bottom: var(--spacing-xl); }
+
+        .day-header {
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .day-header h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4rem;
+            text-transform: uppercase;
+            color: var(--text-white);
+            line-height: 1;
+        }
+
+        .day-header p {
+            color: var(--neon-blue);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+
+        .warmup-card {
+            background: transparent;
+            border-left: 4px solid var(--neon-blue);
+            padding: 20px 30px;
+            margin-bottom: var(--spacing-lg);
+            background: linear-gradient(90deg, rgba(0, 243, 255, 0.05) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .warmup-card h3 {
+            color: var(--text-white);
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .warmup-card p { color: var(--text-dim); }
+
+        /* Exercise Cards */
+        .exercise-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            margin-bottom: var(--spacing-md);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .exercise-img {
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            object-fit: cover;
+            filter: grayscale(80%) contrast(1.2);
+            transition: filter 0.5s ease;
+        }
+
+        .exercise-card:hover .exercise-img {
+            filter: grayscale(0%) contrast(1.1);
+        }
+
+        .exercise-content {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .series-tag {
+            align-self: flex-start;
+            background: var(--neon-green);
+            color: #000;
+            padding: 6px 16px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            border-radius: 50px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .name-es {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            color: var(--text-white);
+            line-height: 1.1;
+            margin-bottom: 5px;
+        }
+
+        .name-en {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            color: var(--neon-blue);
+            font-style: italic;
+            font-weight: 300;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .detailed-desc {
+            font-size: 1.05rem;
+            color: var(--text-dim);
+            text-align: justify;
+        }
+
+        .detailed-desc b { color: var(--text-white); }
+
+        /* Mobile Adjustments */
+        @media (max-width: 900px) {
+            .exercise-card { grid-template-columns: 1fr; }
+            .exercise-img { height: 250px; min-height: 250px; }
+            .exercise-content { padding: 30px; }
+            h1 { font-size: 3.5rem; }
+            .time-box { min-width: 80px; padding: 15px; }
+            .time-box span { font-size: 2rem; }
+            .master-advice { grid-template-columns: 1fr; }
+            .day-header h2 { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="version-tag">Programa Base V4.0</div>
+    <h1>The Core<br>Routine</h1>
+    <p>Fuerza Bruta • 3 Días a la Semana</p>
+</header>
+
+<section id="countdown-section">
+    <a href="https://www.ironman.com/races/im703-santa-cruz" target="_blank" class="ironman-link">IRONMAN 70.3 SANTA CRUZ</a>
+    <div class="countdown-timer" id="countdown">
+        <div class="time-box"><span id="days">00</span><label>Días</label></div>
+        <div class="time-box"><span id="hours">00</span><label>Horas</label></div>
+        <div class="time-box"><span id="minutes">00</span><label>Minutos</label></div>
+        <div class="time-box"><span id="seconds">00</span><label>Segundos</label></div>
+    </div>
+</section>
+
+<section id="quote-container">
+    <div class="quote-title">Mindset Check</div>
+    <div id="daily-quote">"Cargando motivación..."</div>
+</section>
+
+<div class="container">
+
+    <section class="master-advice">
+        <div class="advice-box">
+            <h2>Sobrecarga Progresiva</h2>
+            <p>La regla de oro de la v4: Si completas las 3 series de un ejercicio llegando al máximo de repeticiones indicadas (ej. 6 reps), <b>debes subir el peso</b> en tu próxima sesión (2.5kg - 5kg). Si no logras el mínimo (ej. 4 reps), mantén el peso hasta ganar fuerza.</p>
+        </div>
+        <div class="advice-box">
+            <h2>El Arte del Descanso</h2>
+            <p>Descansa <b>3 minutos</b> completos entre series de ejercicios pesados con barra, y <b>2 minutos</b> en ejercicios con mancuernas o poleas. Usa ese tiempo para visualizar la siguiente serie, no para ver el celular.</p>
+        </div>
+    </section>
+
+    <section class="day-section">
+        <div class="day-header">
+            <h2>Día 1: Empuje</h2>
+            <p>Pecho, Hombros y Tríceps</p>
+        </div>
+
+        <div class="warmup-card">
+            <h3>Calentamiento General (Pre-Compuesto)</h3>
+            <p>Realiza 5-10 minutos de movilidad articular. Para el primer ejercicio (Press de Banca), haz 1 serie de 12 reps solo con la barra, 1 serie de 8 reps al 50% de tu peso de trabajo, y 1 serie de 4 reps al 75%. Luego inicia tus series reales.</p>
+        </div>
+
+        <div class="exercise-card">
+            <img class="exercise-img" src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop" alt="Bench Press">
+            <div class="exercise-content">
+                <span class="series-tag">3 SERIES x 4-6 REPS</span>
+                <h3 class="name-es">Press de Banca con Barra</h3>
+                <span class="name-en">Barbell Bench Press</span>
+                <p class="detailed-desc">
+                    <b>Técnica Maestra:</b> Acuéstate en el banco, retrae las escápulas (junta los omóplatos) y mantén un ligero arco en la espalda baja. Tus pies deben estar firmemente plantados en el suelo.
+                    <br><br><b>Ejecución:</b> Baja la barra con control hasta que roce la parte media de tu pecho. Empuja con fuerza explosiva hacia arriba. Este ejercicio es la base de tu fuerza de empuje frontal.
+                </p>
+            </div>
+        </div>
+
+        <div class="exercise-card">
+            <img class="exercise-img" src="https://images.unsplash.com/photo-1541534741688-6078c6bc35e5?q=80&w=800&auto=format&fit=crop" alt="Incline Bench">
+            <div class="exercise-content">
+                <span class="series-tag">3 SERIES x 4-6 REPS</span>
+                <h3 class="name-es">Press de Banca Inclinado</h3>
+                <span class="name-en">Incline Barbell Bench Press</span>
+                <p class="detailed-desc">
+                    <b>Técnica Maestra:</b> Ajusta el banco a unos 30 o 45 grados. El agarre debe ser ligeramente más ancho que tus hombros.
+                    <br><br><b>Ejecución:</b> Baja la barra hacia la parte superior de tu pecho (cerca de las clavículas). Este ángulo traslada el trabajo principal al haz clavicular del pectoral, dando un aspecto más lleno y denso al pecho superior.
+                </p>
+            </div>
+        </div>
+
+        <div class="exercise-card">
+            <img class="exercise-img" src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=800&auto=format&fit=crop" alt="Dumbbell Press">
+            <div class="exercise-content">
+                <span class="series-tag">3 SERIES x 4-6 REPS</span>
+                <h3 class="name-es">Press de Banca con Mancuernas</h3>
+                <span class="name-en">Dumbbell Bench Press</span>
+                <p class="detailed-desc">
+                    <b>Técnica Maestra:</b> Posiciónate en un banco plano. Las mancuernas obligan a cada lado de tu cuerpo a trabajar de forma independiente, corrigiendo desequilibrios de fuerza.
+                    <br><br><b>Ejecución:</b> Baja las mancuernas hasta sentir un buen estiramiento en el pecho. Al empujar hacia arriba, acércalas ligeramente (sin que choquen) para una contracción máxima.
+                </p>
+            </div>
+        </div>
+
+        <div class="exercise-card">
+            <img class="exercise-img" src="https://images.unsplash.com/photo-1532384661798-58b53a4fbe37?q=80&w=800&auto=format&fit=crop" alt="Triceps Pushdown">
+            <div class="exercise-content">
+                <span class="series-tag">3 SERIES x 6-8 REPS</span>
+                <h3 class="name-es">Extensión de Tríceps en Polea</h3>
+                <span class="name-en">Triceps Cable Pushdown</span>
+                <p class="detailed-desc">
+                    <b>Técnica Maestra:</b> Párate frente a la polea (alta). Mantén los codos pegados a las costillas en todo momento. Si tus codos se mueven hacia adelante y atrás, estás usando la espalda.
+                    <br><br><b>Ejecución:</b> Empuja la barra o cuerda hacia abajo hasta bloquear los codos por completo. Sube de manera controlada resistiendo el peso.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="day-section">
+        <div class="day-header">
+            <h2>Día 2: Tracción</h2>
+            <p>Espalda y Bíceps</p>
+        </div>
+
+        <div class="warmup-card">
+            <h3>Calentamiento para Cadena Posterior</h3>
+            <p>Haz 2 series de "Buenos Días" sin peso o con tubo de PVC (15 reps) para activar lumbares e isquiotibiales. Realiza tu esquema de rampa de calentamiento (barra sola, 50%, 75%) específico para el Peso Muerto antes de tus series de trabajo.</p>
+        </div>
+
+        <div class="exercise-card">
+            <img class="exercise-img" src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?q=80&w=800&auto=format&fit=crop" alt="Deadlift">
+            <div class="exercise-content">
+                <span class="series-tag">3 SERIES x 4-6 REPS</span>
+                <h3 class="name-es">Peso Muerto con Barra</h3>
+                <span class="name-en">Barbell Deadlift</span>
+                <p class="detailed-desc">
+                    <b>Técnica Maestra:</b> Párate con la barra sobre la mitad de tu pie. Flexiona las caderas y rodillas, agarra la barra, saca el pecho y pon la espalda recta y firme antes de jalar.
+                    <br><br><b>Ejecución:</b> Empuja el suelo con las piernas y levanta el torso simultáneamente. La barra debe rozar tus espinillas y muslos al subir. No te inclines hacia atrás al final del movimiento.
+                </p>
+            </div>
+        </div>
+
+        <div class="exercise-card">
+            <img class="exercise-img" src="https://images.unsplash.com/photo-1603287611837-f2146f5de26b?q=80&w=800&auto=format&fit=crop" alt="Dumbbell Row">
+            <div class="exercise-content">
+                <span class="series-tag">3 SERIES x 4-6 REPS</span>
+                <h3 class="name-es">Remo con Mancuerna a una Mano</h3>
+                <span class="name-en">One-Arm Dumbbell Row</span>
+                <p class="detailed-desc">
+                    <b>Técnica Maestra:</b> Apoya una rodilla y una mano sobre un banco plano. Tu espalda debe estar paralela al piso, neutral y firme.
+                    <br><br><b>Ejecución:</b> Inicia el movimiento tirando del codo hacia el techo y ligeramente hacia tu cadera. Aprieta el músculo dorsal en la cima y baja lentamente hasta extender el brazo por completo.
+                </p>
+            </div>
+        </div>
+
+        <div class="exercise-card">
+            <img class="exercise-img" src="https://images.unsplash.com/photo-1598971639058-fab3c32f850e?q=80&w=800&auto=format&fit=crop" alt="Lat Pulldown">
+            <div class="exercise-content">
+                <span class="series-tag">3 SERIES x 6-8 REPS</span>
+                <h3 class="name-es">Jalón al Pecho (Agarre Medio)</h3>
+                <span class="name-en">Medium-Grip Lat Pulldown</span>
+                <p class="detailed-desc">
+                    <b>Técnica Maestra:</b> Toma la barra con un agarre apenas más ancho que tus hombros. Siéntate, ancla bien tus piernas y saca el pecho.
+                    <br><br><b>Ejecución:</b> Jala la barra hacia la parte alta de tu pecho (esternón) dirigiendo el movimiento con los codos hacia abajo y hacia atrás. No te balancees excesivamente hacia atrás al jalar.
+                </p>
+            </div>
+        </div>
+
+        <div class="exercise-card">
+            <img class="exercise-img" src="https://images.unsplash.com/photo-1581009137042-c552e485697a?q=80&w=800&auto=format&fit=crop" alt="Bicep Curl">
+            <div class="exercise-content">
+                <span class="series-tag">3 SERIES x 6-8 REPS</span>
+                <h3 class="name-es">Curl de Bíceps Alterno</h3>
+                <span class="name-en">Alternating Dumbbell Curl</span>
+                <p class="detailed-desc">
+                    <b>Técnica Maestra:</b> De pie o sentado, mantén los codos fijos a los lados de tu torso. Evita usar el impulso del cuerpo (no te balancees).
+                    <br><br><b>Ejecución:</b> Sube una mancuerna mientras rotas la muñeca hacia afuera (supinación) para que la palma mire hacia tu hombro en el punto máximo. Contrae fuerte y baja controlado antes de alternar de brazo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="day-section">
+        <div class="day-header">
+            <h2>Día 3: Tren Inferior</h2>
+            <p>Cuádriceps, Isquiotibiales y Glúteos</p>
+        </div>
+
+        <div class="warmup-card">
+            <h3>Calentamiento de Tren Inferior</h3>
+            <p>Abre tus caderas: haz 10 sentadillas profundas con tu propio peso, pausando 3 segundos abajo. Haz desplantes dinámicos sin peso. Realiza tus series de rampa en la Sentadilla con Barra para preparar el sistema nervioso antes de los sets pesados.</p>
+        </div>
+
+        <div class="exercise-card">
+            <img class="exercise-img" src="https://images.unsplash.com/photo-1566241440091-ec10de8db2e1?q=80&w=800&auto=format&fit=crop" alt="Squat">
+            <div class="exercise-content">
+                <span class="series-tag">3 SERIES x 4-6 REPS</span>
+                <h3 class="name-es">Sentadilla con Barra</h3>
+                <span class="name-en">Barbell Squat</span>
+                <p class="detailed-desc">
+                    <b>Técnica Maestra:</b> Coloca la barra descansando sobre los músculos trapecios, saca el pecho y tensa el abdomen como si fueras a recibir un golpe. 
+                    <br><br><b>Ejecución:</b> Rompe el movimiento desde la cadera y las rodillas a la vez. Baja profundo, asegurándote que la parte superior de tus muslos quede paralela (o más abajo) respecto al piso. Empuja fuerte desde toda la planta del pie.
+                </p>
+            </div>
+        </div>
+
+        <div class="exercise-card">
+            <img class="exercise-img" src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=800&auto=format&fit=crop" alt="Leg Curl">
+            <div class="exercise-content">
+                <span class="series-tag">3 SERIES x 6-8 REPS</span>
+                <h3 class="name-es">Curl de Piernas (Máquina)</h3>
+                <span class="name-en">Lying or Seated Leg Curl</span>
+                <p class="detailed-desc">
+                    <b>Técnica Maestra:</b> Asegúrate de alinear la articulación de tu rodilla con el eje de rotación de la máquina. Ajusta el rodillo justo por encima del talón.
+                    <br><br><b>Ejecución:</b> Contrae los isquiotibiales (parte trasera de la pierna) para flexionar las rodillas lo más posible. Aguanta 1 segundo en la contracción máxima y regresa la carga lentamente.
+                </p>
+            </div>
+        </div>
+
+        <div class="exercise-card">
+            <img class="exercise-img" src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?q=80&w=800&auto=format&fit=crop" alt="Leg Press">
+            <div class="exercise-content">
+                <span class="series-tag">3 SERIES x 6-8 REPS</span>
+                <h3 class="name-es">Prensa de Piernas</h3>
+                <span class="name-en">Leg Press</span>
+                <p class="detailed-desc">
+                    <b>Técnica Maestra:</b> Apoya toda la espalda y la cabeza en el respaldo. Coloca los pies en el centro de la plataforma a la anchura de los hombros.
+                    <br><br><b>Ejecución:</b> Baja la plataforma controladamente hasta que tus rodillas formen un ángulo de 90 grados (o hasta donde tu movilidad permita sin que tu zona lumbar se despegue). Empuja con fuerza, <b>sin bloquear totalmente las rodillas al final</b>.
+                </p>
+            </div>
+        </div>
+
+        <div class="exercise-card">
+            <img class="exercise-img" src="https://images.unsplash.com/photo-1434682881908-b43d0467b798?q=80&w=800&auto=format&fit=crop" alt="Lunges">
+            <div class="exercise-content">
+                <span class="series-tag">3 SERIES x 6-8 REPS</span>
+                <h3 class="name-es">Estocadas con Mancuernas</h3>
+                <span class="name-en">Dumbbell Lunges</span>
+                <p class="detailed-desc">
+                    <b>Técnica Maestra:</b> Sujeta un par de mancuernas a los lados de tu cuerpo. Mantén el pecho arriba y la mirada al frente en todo momento.
+                    <br><br><b>Ejecución:</b> Da un paso largo hacia adelante y flexiona ambas rodillas. La rodilla trasera debe quedar a centímetros del suelo y la delantera no debe sobrepasar excesivamente la punta del pie. Empuja con la pierna delantera para regresar a la posición inicial.
+                </p>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<script>
+    // FRASE DEL DÍA
+    const quotes = [
+        "El éxito en un Ironman se construye en las horas oscuras del gimnasio.",
+        "A las 6 AM se forjan los campeones mientras el mundo duerme.",
+        "Tu cuerpo es capaz de todo, es tu mente a la que tienes que convencer.",
+        "En el Ironman y en la vida: Un paso a la vez, una brazada a la vez.",
+        "No busques motivación, construye disciplina.",
+        "No te detengas cuando estés cansado, detente cuando hayas terminado.",
+        "La mejor forma de predecir tu futuro es creándolo hoy mismo.",
+        "Cada repetición te acerca a la línea de meta en Santa Cruz.",
+        "La fuerza no viene de la capacidad física, viene de una voluntad indomable.",
+        "Visualiza la meta, luego trabaja hasta que sea tu realidad."
+    ];
+
+    function loadQuote() {
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        document.getElementById('daily-quote').innerText = `"${quotes[randomIndex]}"`;
+    }
+
+    // COUNTDOWN TIMER IRONMAN SANTA CRUZ 
+    // Fecha: 13 de Septiembre de 2026 a las 06:00:00 AM
+    const countDownDate = new Date("Sep 13, 2026 06:00:00").getTime();
+
+    const x = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+        document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+        document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "<div class='time-box'><span>¡ES HOY!</span><label>Destruye la carrera</label></div>";
+        }
+    }, 1000);
+
+    window.onload = loadQuote;
+</script>
+
+</body>
+</html>
