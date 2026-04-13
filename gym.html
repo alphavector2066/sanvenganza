@@ -321,7 +321,125 @@
             .master-advice { grid-template-columns: 1fr; }
             .day-header h2 { font-size: 3rem; }
         }
+
+        /* Tracker & Dashboard Styles */
+        #dashboard-section {
+            max-width: 1000px;
+            margin: 0 auto var(--spacing-xl) auto;
+            padding: 40px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .dashboard-title {
+            color: var(--neon-blue);
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .tracker-container {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px dashed var(--card-border);
+        }
+        .tracker-container h4 {
+            color: var(--neon-green);
+            font-family: 'Oswald', sans-serif;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .tracker-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .tracker-table th, .tracker-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid var(--card-border);
+            font-size: 0.95rem;
+        }
+        .tracker-table th {
+            color: var(--text-dim);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+        .tracker-input {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--card-border);
+            color: #fff;
+            padding: 8px 12px;
+            font-family: 'Inter', sans-serif;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        .tracker-input:focus {
+            outline: none;
+            border-color: var(--neon-blue);
+            background: rgba(0, 243, 255, 0.1);
+        }
+        .input-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .btn-track {
+            background: transparent;
+            color: var(--neon-green);
+            border: 1px solid var(--neon-green);
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+        .btn-track:hover {
+            background: var(--neon-green);
+            color: #000;
+        }
+        .btn-delete {
+            background: transparent;
+            color: #ff3366;
+            border: 1px solid #ff3366;
+            padding: 4px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+        .btn-delete:hover {
+            background: #ff3366;
+            color: #fff;
+        }
+        #config-alert {
+            background: rgba(204, 255, 0, 0.1);
+            border: 1px solid var(--neon-green);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            color: var(--text-white);
+            text-align: center;
+        }
+        @media (max-width: 900px) {
+            .input-row { flex-direction: column; align-items: stretch; }
+            #dashboard-section { margin: 0 15px var(--spacing-xl) 15px; }
+        }
     </style>
+
+    <!-- Supabase & Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -344,6 +462,16 @@
 <section id="quote-container">
     <div class="quote-title">Mindset Check</div>
     <div id="daily-quote">"Cargando motivación..."</div>
+</section>
+
+<!-- Dashboard Section -->
+<section id="dashboard-section">
+    <div id="config-alert" style="display: none;">
+        <strong>⚠️ Configuración Pendiente:</strong> Abre tu código fuente (<code>gym.html</code>) e ingresa tu <i>Project URL</i> y <i>Publishable Key</i> en las primeras líneas del bloque <code>&lt;script&gt;</code> al final del archivo para activar la bitácora.
+    </div>
+    <div class="dashboard-title">Dashboard de Potencia (Lbs)</div>
+    <p style="text-align: center; color: var(--text-dim); margin-bottom: 20px;">Suma de tu volumen total del día</p>
+    <canvas id="progressChart" width="800" height="250"></canvas>
 </section>
 
 <div class="container">
@@ -554,6 +682,11 @@
 </div>
 
 <script>
+    // --- VARIABLES DE SUPABASE (¡PEGA TUS DATOS AQUÍ!) ---
+    // 1. Reemplaza las comillas vacías con TU URL y TU KEY
+    const SUPABASE_URL = 'https://hhlreeqqmntptilknwos.supabase.co'; // Ej: 'https://xxxxxxxxxxxx.supabase.co'
+    const SUPABASE_KEY = 'sb_publishable_p_T2zFqX2aC-UD3HJaSXfg_IV2zDqcp'; // Ej: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...'
+
     // FRASE DEL DÍA
     const quotes = [
         "El éxito en un Ironman se construye en las horas oscuras del gimnasio.",
@@ -574,7 +707,6 @@
     }
 
     // COUNTDOWN TIMER IRONMAN SANTA CRUZ 
-    // Fecha: 13 de Septiembre de 2026 a las 06:00:00 AM
     const countDownDate = new Date("Sep 13, 2026 06:00:00").getTime();
 
     const x = setInterval(function() {
@@ -597,7 +729,244 @@
         }
     }, 1000);
 
-    window.onload = loadQuote;
+
+    // --- SISTEMA DE TRACKING ---
+    let supabaseClient = null;
+    let exerciseData = {}; 
+
+    function initTracker() {
+        // Encontrar cada tarjeta de ejercicio e inyectarle la tabla
+        document.querySelectorAll('.exercise-card').forEach(card => {
+            const nameEn = card.querySelector('.name-en').innerText;
+            const exerciseId = nameEn.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+            card.setAttribute('data-exercise-id', exerciseId);
+            
+            const contentDiv = card.querySelector('.exercise-content');
+            const today = new Date().toISOString().split('T')[0];
+            
+            const trackerHtml = `
+                <div class="tracker-container">
+                    <h4>Historial de Cargas</h4>
+                    <table class="tracker-table">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Peso (Lbs)</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-${exerciseId}">
+                            <tr><td colspan="3" style="text-align:center; color: #555;">No hay datos registrados aún...</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="input-row">
+                        <input type="date" id="date-${exerciseId}" class="tracker-input" value="${today}" style="width: 140px;">
+                        <input type="number" id="weight-${exerciseId}" class="tracker-input" placeholder="Lbs" step="2.5" style="width: 90px;">
+                        <button class="btn-track" onclick="saveRecord('${exerciseId}')">+ Guardar Set</button>
+                    </div>
+                </div>
+            `;
+            contentDiv.insertAdjacentHTML('beforeend', trackerHtml);
+        });
+
+        // Iniciar base de datos
+        if (SUPABASE_URL.trim() !== '' && SUPABASE_KEY.trim() !== '') {
+            document.getElementById('config-alert').style.display = 'none';
+            supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+            fetchData();
+        } else {
+            document.getElementById('config-alert').style.display = 'block';
+            // Renderizar un gráfico vacío como demo
+            renderDashboardChart();
+        }
+    }
+
+    async function fetchData() {
+        if (!supabaseClient) return;
+        
+        try {
+            const { data, error } = await supabaseClient
+                .from('gym_tracking')
+                .select('*')
+                .order('date', { ascending: true })
+                .order('id', { ascending: true }); // Segundo sorting por orden de insercion
+
+            if (error) throw error;
+
+            exerciseData = {};
+            data.forEach(row => {
+                if (!exerciseData[row.exercise_id]) exerciseData[row.exercise_id] = [];
+                exerciseData[row.exercise_id].push(row);
+            });
+
+            // Actualizar interfaz
+            Object.keys(exerciseData).forEach(exId => renderTable(exId));
+            renderDashboardChart();
+        } catch (e) {
+            console.error("Error cargando Supabase:", e);
+        }
+    }
+
+    function renderTable(exerciseId) {
+        const tbody = document.getElementById(`tbody-${exerciseId}`);
+        if (!tbody) return;
+        
+        const records = exerciseData[exerciseId] || [];
+        
+        if (records.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="3" style="text-align:center; color: #555;">No hay datos registrados aún...</td></tr>';
+            return;
+        }
+
+        tbody.innerHTML = '';
+        records.forEach(record => {
+            const tr = `
+                <tr>
+                    <td>${record.date}</td>
+                    <td style="color: var(--text-white); font-weight: 600;">${record.weight} lbs</td>
+                    <td style="text-align: right;">
+                        <button class="btn-delete" title="Borrar registro" onclick="deleteRecord('${exerciseId}', ${record.id})">✕</button>
+                    </td>
+                </tr>
+            `;
+            tbody.insertAdjacentHTML('beforeend', tr);
+        });
+        
+        // Sugerir el último peso levantado en el input
+        if (records.length > 0) {
+            const lastRecord = records[records.length - 1];
+            document.getElementById(`weight-${exerciseId}`).value = lastRecord.weight;
+        }
+    }
+
+    async function saveRecord(exerciseId) {
+        if (!supabaseClient) {
+            alert("⚠️ Supabase no está configurado. Copia tu URL y Key en el código fuente.");
+            return;
+        }
+
+        const dateInput = document.getElementById(`date-${exerciseId}`).value;
+        const weightInput = parseFloat(document.getElementById(`weight-${exerciseId}`).value);
+
+        if (!dateInput || isNaN(weightInput)) {
+            alert("Ingresa un peso válido.");
+            return;
+        }
+
+        const btn = document.querySelector(`#date-${exerciseId}`).closest('.input-row').querySelector('.btn-track');
+        btn.innerText = "Guardando...";
+
+        const { data, error } = await supabaseClient
+            .from('gym_tracking')
+            .insert([{ exercise_id: exerciseId, date: dateInput, weight: weightInput }])
+            .select();
+
+        if (error) {
+            alert("Error: " + error.message);
+            btn.innerText = "+ Guardar Set";
+        } else {
+            if (!exerciseData[exerciseId]) exerciseData[exerciseId] = [];
+            exerciseData[exerciseId].push(data[0]);
+            
+            renderTable(exerciseId);
+            renderDashboardChart();
+            
+            btn.innerText = "¡Guardado!";
+            setTimeout(() => btn.innerText = "+ Guardar Set", 2000);
+        }
+    }
+
+    async function deleteRecord(exerciseId, recordId) {
+        if (!confirm("¿Seguro que deseas eliminar este peso de tu historial?")) return;
+        
+        const { error } = await supabaseClient
+            .from('gym_tracking')
+            .delete()
+            .eq('id', recordId);
+            
+        if (!error) {
+            exerciseData[exerciseId] = exerciseData[exerciseId].filter(r => r.id !== recordId);
+            renderTable(exerciseId);
+            renderDashboardChart();
+        } else {
+            alert("Error eliminando: " + error.message);
+        }
+    }
+
+    // --- GRÁFICA CHART.JS ---
+    let progressChart = null;
+
+    function renderDashboardChart() {
+        const ctx = document.getElementById('progressChart');
+        if (!ctx) return;
+
+        // Calcular volumen total por día sumando los maximos levantados
+        const dailyTotals = {};
+        
+        Object.keys(exerciseData).forEach(exId => {
+            exerciseData[exId].forEach(record => {
+                if (!dailyTotals[record.date]) dailyTotals[record.date] = 0;
+                dailyTotals[record.date] += record.weight;
+            });
+        });
+
+        const sortedDates = Object.keys(dailyTotals).sort();
+        const dataValues = sortedDates.map(date => dailyTotals[date]);
+
+        // Si no hay datos, mostrar algo de ejemplo
+        if (sortedDates.length === 0) {
+            sortedDates.push(new Date().toISOString().split('T')[0]);
+            dataValues.push(0);
+        }
+
+        if (progressChart) {
+            progressChart.data.labels = sortedDates;
+            progressChart.data.datasets[0].data = dataValues;
+            progressChart.update();
+        } else {
+            progressChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: sortedDates,
+                    datasets: [{
+                        label: 'Total Libras (Suma de Cargas)',
+                        data: dataValues,
+                        borderColor: '#ccff00',
+                        backgroundColor: 'rgba(204, 255, 0, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 2,
+                        pointBackgroundColor: '#00f3ff',
+                        pointBorderColor: '#000',
+                        pointRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { labels: { color: '#999', font: { family: 'Inter' } } }
+                    },
+                    scales: {
+                        y: { 
+                            beginAtZero: true, 
+                            grid: { color: '#222' }, 
+                            ticks: { color: '#999' }
+                        },
+                        x: { 
+                            grid: { color: '#222' }, 
+                            ticks: { color: '#999' }
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    // ARRANQUE
+    window.onload = () => {
+        loadQuote();
+        initTracker();
+    };
 </script>
 
 </body>
