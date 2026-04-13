@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DR.HTML | Cirugía Plástica & Estética de Alta Gama</title>
+  <title>DR.HTML | Cirugía Plástica & Estética en Arandas, Jalisco</title>
   <meta name="description"
-    content="Dr. Filiberto — Master en escultura anatómica y cirugía estética avanzada. Descubra la excelencia en rejuvenecimiento y armonía corporal en nuestra exclusiva clínica de Guadalajara." />
+    content="DR.HTML (Dr. Filiberto) — Cirujano Plástico Certificado. Descubra la excelencia en cirugía estética y reconstructiva en Los Altos de Jalisco. Especialista en Lipoescultura HD, Rinoplastia y Rejuvenecimiento Facial." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet" />
   <style>
     /* ================================================================
@@ -25,21 +25,22 @@
     }
 
     :root {
-      --color-primary: #1a1a1a;
-      --color-secondary: #fdfcf8;
+      --color-primary: #111111;
+      --color-secondary: #faf9f6; /* Off-white warmer tone */
       --color-gold: #c5a059;
-      --color-gold-muted: #e5d1a7;
-      --color-text: #333333;
-      --color-text-muted: #666666;
+      --color-gold-light: #e6ce9e;
+      --color-text: #222222;
+      --color-text-muted: #555555;
       --color-white: #ffffff;
-      --color-light-gray: #f4f4f4;
+      --color-border: #e2dfd5;
 
       --font-display: 'Playfair Display', serif;
       --font-body: 'Inter', sans-serif;
 
-      --container-max: 1200px;
-      --section-padding: clamp(5rem, 10vw, 8rem);
-      --transition-base: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --container-max: 1300px;
+      --section-padding: clamp(6rem, 12vw, 10rem);
+      --transition-base: 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+      --transition-slow: 1s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
     html {
@@ -51,9 +52,11 @@
       background-color: var(--color-secondary);
       color: var(--color-text);
       font-family: var(--font-body);
-      line-height: 1.6;
+      line-height: 1.7;
       overflow-x: hidden;
       font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     /* ================================================================
@@ -63,7 +66,7 @@
       width: 100%;
       max-width: var(--container-max);
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
     }
 
     img {
@@ -74,8 +77,8 @@
 
     .reveal {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transform: translateY(40px);
+      transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1), transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
     }
 
     .reveal.active {
@@ -85,16 +88,18 @@
 
     .btn {
       display: inline-block;
-      padding: 1rem 2.5rem;
+      padding: 1.25rem 3rem;
       font-family: var(--font-body);
       font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
+      font-weight: 500;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
       text-decoration: none;
       transition: var(--transition-base);
       cursor: pointer;
-      border: none;
+      border: 1px solid transparent;
+      position: relative;
+      overflow: hidden;
     }
 
     .btn-gold {
@@ -104,18 +109,37 @@
 
     .btn-gold:hover {
       background-color: var(--color-primary);
-      transform: translateY(-2px);
     }
 
     .btn-outline {
-      border: 1px solid var(--color-gold);
-      color: var(--color-gold);
+      border-color: var(--color-primary);
+      color: var(--color-primary);
       background: transparent;
     }
 
     .btn-outline:hover {
-      background-color: var(--color-gold);
+      background-color: var(--color-primary);
       color: var(--color-white);
+    }
+
+    .eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      display: block;
+      margin-bottom: 1.5rem;
+    }
+
+    .divider {
+      width: 1px;
+      height: 80px;
+      background-color: var(--color-gold);
+      margin: 3rem auto;
+      display: block;
+      opacity: 0.5;
     }
 
     /* ================================================================
@@ -127,16 +151,17 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      padding: 1.5rem 0;
+      padding: 2rem 0;
       transition: var(--transition-base);
-      background: rgba(253, 252, 248, 0);
+      background: transparent;
+      border-bottom: 1px solid transparent;
     }
 
     #header.scrolled {
-      background: rgba(253, 252, 248, 0.95);
-      backdrop-filter: blur(10px);
-      padding: 1rem 0;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+      background: rgba(250, 249, 246, 0.98);
+      backdrop-filter: blur(15px);
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--color-border);
     }
 
     .nav-inner {
@@ -147,11 +172,11 @@
 
     .logo {
       font-family: var(--font-display);
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       font-weight: 700;
       color: var(--color-primary);
       text-decoration: none;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
     }
 
     .logo span {
@@ -160,7 +185,7 @@
 
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: 3rem;
       list-style: none;
     }
 
@@ -169,13 +194,29 @@
       color: var(--color-text);
       font-size: 0.7rem;
       font-weight: 500;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      transition: var(--transition-base);
+      transition: color var(--transition-base);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: var(--color-gold);
+      transition: width var(--transition-base);
     }
 
     .nav-links a:hover {
       color: var(--color-gold);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
     }
 
     .nav-cta {
@@ -193,76 +234,113 @@
        HERO
     ================================================================ */
     #hero {
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       position: relative;
-      overflow: hidden;
-      background-color: #f1ede4;
+      padding-top: 100px;
+    }
+
+    .hero-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 10;
     }
 
     .hero-content {
-      position: relative;
-      z-index: 10;
-      max-width: 600px;
-    }
-
-    .hero-label {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--color-gold);
-      margin-bottom: 1.5rem;
-      display: block;
+      padding-right: 2rem;
     }
 
     .hero-title {
       font-family: var(--font-display);
-      font-size: clamp(3rem, 8vw, 5rem);
-      line-height: 1.1;
-      font-weight: 700;
+      font-size: clamp(3.5rem, 6vw, 6rem);
+      line-height: 1.05;
+      font-weight: 400;
       color: var(--color-primary);
       margin-bottom: 2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title span {
+      font-style: italic;
+      color: var(--color-gold);
     }
 
     .hero-subtitle {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       color: var(--color-text-muted);
       margin-bottom: 3rem;
-      max-width: 450px;
+      max-width: 480px;
+      line-height: 1.8;
+    }
+
+    .hero-img-wrap {
+      position: relative;
+      height: 80vh;
+      min-height: 600px;
+      overflow: hidden;
     }
 
     .hero-img {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 55%;
+      width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
-      z-index: 1;
+      animation: slowPan 25s linear infinite alternate;
     }
 
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, var(--color-secondary) 30%, transparent 70%);
-      z-index: 2;
+    @keyframes slowPan {
+      0% { transform: scale(1.05) translate(0, 0); }
+      100% { transform: scale(1.1) translate(-2%, 2%); }
     }
 
-    @media (max-width: 768px) {
-      .hero-img {
-        width: 100%;
-        opacity: 0.3;
+    @media (max-width: 992px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
       }
-      .hero-overlay {
-        background: linear-gradient(to top, var(--color-secondary) 20%, transparent 100%);
+      .hero-img-wrap {
+        height: 50vh;
+        min-height: 400px;
+        order: -1;
       }
       .hero-content {
+        padding-right: 0;
         text-align: center;
-        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
+      .hero-title {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+      }
+    }
+
+    /* ================================================================
+       STATEMENT
+    ================================================================ */
+    #statement {
+      padding: calc(var(--section-padding) * 0.8) 0;
+      background-color: var(--color-primary);
+      color: var(--color-secondary);
+      text-align: center;
+    }
+
+    .statement-text {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.3;
+      max-width: 1000px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+
+    .statement-text span {
+      color: var(--color-gold);
+      font-style: italic;
     }
 
     /* ================================================================
@@ -270,34 +348,61 @@
     ================================================================ */
     #about {
       padding: var(--section-padding) 0;
+      position: relative;
     }
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
+      grid-template-columns: 5fr 6fr;
+      gap: 6rem;
       align-items: center;
     }
 
     .about-text h2 {
       font-family: var(--font-display);
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      margin-bottom: 2rem;
       color: var(--color-primary);
+      line-height: 1.1;
     }
 
     .about-text p {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.75rem;
       color: var(--color-text-muted);
-      font-size: 1.05rem;
+      font-size: 1.1rem;
     }
 
-    .about-signature {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-style: italic;
+    .certification-badges {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 3rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .cert-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .cert-icon {
       color: var(--color-gold);
-      margin-top: 2rem;
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .cert-content h4 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--color-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .cert-content p {
+      font-size: 0.9rem;
+      margin-bottom: 0;
     }
 
     .about-img-wrap {
@@ -305,24 +410,48 @@
     }
 
     .about-img-wrap img {
-      border-radius: 4px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      height: auto;
+      object-fit: cover;
     }
 
-    .about-accent {
+    .about-img-caption {
       position: absolute;
-      bottom: -30px;
-      left: -30px;
-      width: 150px;
-      height: 150px;
-      background-color: var(--color-gold);
-      z-index: -1;
-      opacity: 0.2;
+      bottom: -2rem;
+      right: -2rem;
+      background: var(--color-white);
+      padding: 2rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+      max-width: 300px;
     }
 
-    @media (max-width: 768px) {
+    .about-img-caption h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .about-img-caption p {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 992px) {
       .about-grid {
         grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+      .about-img-caption {
+        bottom: 0;
+        right: 0;
+        position: relative;
+        max-width: 100%;
+        box-shadow: none;
+        border: 1px solid var(--color-border);
+        margin-top: -3rem;
+        z-index: 10;
+        margin-left: 2rem;
       }
     }
 
@@ -330,85 +459,120 @@
        SPECIALTIES
     ================================================================ */
     #specialties {
-      padding: var(--section-padding) 0;
+      padding: calc(var(--section-padding) * 1.2) 0;
       background-color: var(--color-white);
     }
 
     .section-header {
       text-align: center;
-      margin-bottom: 4rem;
+      margin-bottom: 5rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .section-header h2 {
       font-family: var(--font-display);
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1.5rem;
+      color: var(--color-primary);
     }
 
     .section-header p {
-      color: var(--color-gold);
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      font-size: 0.8rem;
+      font-size: 1.1rem;
+      color: var(--color-text-muted);
     }
 
-    .specialty-grid {
+    .specialty-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6rem;
+    }
+
+    .specialty-row {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
     }
 
-    .specialty-card {
+    .specialty-row:nth-child(even) {
+      direction: rtl;
+    }
+
+    .specialty-row:nth-child(even) > * {
+      direction: ltr;
+    }
+
+    .specialty-image {
       position: relative;
+      height: 600px;
       overflow: hidden;
-      aspect-ratio: 4/5;
-      background-color: var(--color-primary);
     }
 
-    .specialty-card img {
+    .specialty-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 1.2s ease;
-      opacity: 0.7;
+      transition: transform var(--transition-slow);
     }
 
-    .specialty-card:hover img {
-      transform: scale(1.08);
-      opacity: 0.5;
+    .specialty-row:hover .specialty-image img {
+      transform: scale(1.05);
     }
 
-    .specialty-content {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      padding: 2.5rem;
-      z-index: 10;
-      color: var(--color-white);
+    .specialty-info {
+      padding: 0 2rem;
     }
 
-    .specialty-content h3 {
+    .specialty-info h3 {
       font-family: var(--font-display);
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--color-primary);
     }
 
-    .specialty-content p {
-      font-size: 0.9rem;
-      opacity: 0.8;
-      max-width: 200px;
+    .specialty-info p {
+      font-size: 1.05rem;
+      color: var(--color-text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .specialty-features {
+      list-style: none;
+      margin-bottom: 2.5rem;
+    }
+
+    .specialty-features li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+      color: var(--color-text);
+    }
+
+    .specialty-features li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: var(--color-gold);
+      font-size: 0.8rem;
+      top: 2px;
     }
 
     @media (max-width: 992px) {
-      .specialty-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 576px) {
-      .specialty-grid {
+      .specialty-row {
         grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .specialty-row:nth-child(even) {
+        direction: ltr;
+      }
+      .specialty-image {
+        height: 400px;
+      }
+      .specialty-info {
+        padding: 0;
       }
     }
 
@@ -418,41 +582,82 @@
     #experience {
       padding: var(--section-padding) 0;
       background-color: var(--color-secondary);
+      border-top: 1px solid var(--color-border);
     }
 
-    .exp-inner {
-      display: flex;
-      flex-direction: column;
-      gap: 4rem;
-    }
-
-    .exp-image {
-      width: 100%;
-      height: 70vh;
-      object-fit: cover;
-      border-radius: 4px;
-    }
-
-    .exp-content {
+    .exp-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 5rem;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .exp-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      position: relative;
+    }
+
+    .exp-img-1 {
+      height: 500px;
+      width: 100%;
+      object-fit: cover;
+      margin-top: 4rem;
+    }
+
+    .exp-img-2 {
+      height: 450px;
+      width: 100%;
+      object-fit: cover;
     }
 
     .exp-content h2 {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 5vw, 3rem);
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      margin-bottom: 2rem;
+      color: var(--color-primary);
+      line-height: 1.1;
     }
 
     .exp-content p {
       color: var(--color-text-muted);
       font-size: 1.1rem;
+      margin-bottom: 1.5rem;
     }
 
-    @media (max-width: 768px) {
-      .exp-content {
+    .location-box {
+      margin-top: 3rem;
+      padding: 2.5rem;
+      background: var(--color-white);
+      border-left: 3px solid var(--color-gold);
+    }
+
+    .location-box h4 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .location-box p {
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 992px) {
+      .exp-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
+      }
+      .exp-images {
+        gap: 1rem;
+      }
+      .exp-img-1 {
+        height: 300px;
+        margin-top: 2rem;
+      }
+      .exp-img-2 {
+        height: 300px;
       }
     }
 
@@ -460,9 +665,9 @@
        FOOTER
     ================================================================ */
     #footer {
-      padding: 5rem 0;
+      padding: 6rem 0 3rem;
       background-color: var(--color-primary);
-      color: var(--color-white);
+      color: rgba(255, 255, 255, 0.8);
     }
 
     .footer-grid {
@@ -473,22 +678,24 @@
 
     .footer-brand h2 {
       font-family: var(--font-display);
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-bottom: 1.5rem;
+      color: var(--color-white);
     }
 
     .footer-about {
       color: rgba(255, 255, 255, 0.6);
-      max-width: 300px;
+      max-width: 350px;
       margin-bottom: 2rem;
+      font-size: 0.95rem;
     }
 
     .footer-links h4 {
       font-family: var(--font-body);
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
-      margin-bottom: 1.5rem;
+      letter-spacing: 0.25em;
+      margin-bottom: 2rem;
       color: var(--color-gold);
     }
 
@@ -497,35 +704,40 @@
     }
 
     .footer-links li {
-      margin-bottom: 0.8rem;
+      margin-bottom: 1rem;
     }
 
     .footer-links a {
       color: rgba(255, 255, 255, 0.6);
       text-decoration: none;
-      font-size: 0.9rem;
-      transition: var(--transition-base);
+      font-size: 0.95rem;
+      transition: color var(--transition-base);
     }
 
     .footer-links a:hover {
       color: var(--color-gold);
-      padding-left: 5px;
     }
 
     .footer-bottom {
-      margin-top: 5rem;
+      margin-top: 6rem;
       padding-top: 2rem;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       color: rgba(255, 255, 255, 0.4);
     }
 
     @media (max-width: 768px) {
       .footer-grid {
         grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
       }
     }
   </style>
@@ -538,52 +750,85 @@
     <div class="container nav-inner">
       <a href="#" class="logo">DR.<span>HTML</span></a>
       <ul class="nav-links">
-        <li><a href="#about">Filosofía</a></li>
+        <li><a href="#about">El Cirujano</a></li>
         <li><a href="#specialties">Especialidades</a></li>
-        <li><a href="#experience">La Clínica</a></li>
+        <li><a href="#experience">Clínica Arandas</a></li>
         <li><a href="#contact">Contacto</a></li>
       </ul>
       <div class="nav-cta">
-        <a href="#contact" class="btn btn-gold">Consulta DR.HTML</a>
+        <a href="#contact" class="btn btn-outline" style="padding: 0.8rem 2rem;">Agendar Consulta</a>
       </div>
     </div>
   </header>
 
   <!-- HERO -->
   <section id="hero">
-    <div class="container hero-content">
-      <span class="hero-label reveal">Cirujano Plástico Certificado</span>
-      <h1 class="hero-title reveal">El Arte de la <br><span>Perfección Anatomica</span></h1>
-      <p class="hero-subtitle reveal">
-        Fusión de precisión médica y visión artística para revelar su mejor versión. Más de 15 años esculpiendo confianza.
-      </p>
-      <div class="reveal">
-        <a href="#specialties" class="btn btn-gold">Explorar Procedimientos</a>
-        <a href="#about" class="btn btn-outline" style="margin-left: 1rem;">Mi Historia</a>
+    <div class="container hero-container">
+      <div class="hero-content">
+        <span class="eyebrow reveal">Cirugía Plástica & Estética</span>
+        <h1 class="hero-title reveal">Redefiniendo la <br><span>belleza natural</span> en Los Altos.</h1>
+        <p class="hero-subtitle reveal">
+          DR.HTML (Dr. Filiberto) es sinónimo de excelencia quirúrgica. 100% certificado. Transformaciones guiadas por la proporción matemática y el arte anatómico, ahora en Arandas, Jalisco.
+        </p>
+        <div class="reveal">
+          <a href="#specialties" class="btn btn-gold">Ver Procedimientos</a>
+        </div>
+      </div>
+      <div class="hero-img-wrap reveal">
+        <!-- High-quality minimalist architectural/beauty imagery -->
+        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=1600" 
+             alt="Espacio de bienestar y lujo" class="hero-img">
       </div>
     </div>
-    <div class="hero-overlay"></div>
-    <img src="/Users/jm/.gemini/antigravity/brain/1cd7a5e4-908c-4b1d-b8b1-b01de395c0fb/dr_filiberto_headshot_1776110607372.png" 
-         alt="Dr. Filiberto" class="hero-img">
+  </section>
+
+  <!-- STATEMENT -->
+  <section id="statement">
+    <div class="container">
+      <p class="statement-text reveal">
+        "No busco cambiar la esencia de mis pacientes, mi propósito es <span>revelar su mejor versión</span> a través de una precisión técnica absoluta y un profundo sentido de la armonía estética."
+      </p>
+      <div class="divider reveal"></div>
+      <span class="eyebrow reveal">DR.HTML - Dr. Filiberto</span>
+    </div>
   </section>
 
   <!-- ABOUT / PHILOSOPHY -->
   <section id="about">
     <div class="container about-grid">
       <div class="about-img-wrap reveal">
-        <img src="/Users/jm/.gemini/antigravity/brain/1cd7a5e4-908c-4b1d-b8b1-b01de395c0fb/dr_filiberto_headshot_1776110607372.png" alt="Dr. Filiberto Portrait">
-        <div class="about-accent"></div>
+        <img src="https://images.unsplash.com/photo-1612349317150-e410f624c427?auto=format&fit=crop&q=80&w=1200" alt="Dr. Filiberto Portrait">
+        <div class="about-img-caption">
+          <h3>Dr. Filiberto</h3>
+          <p>Cirujano Plástico, Estético y Reconstructivo</p>
+        </div>
       </div>
-      <div class="about-text reveal">
-        <p style="color: var(--color-gold); font-weight: 600; letter-spacing: 0.2rem; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 1rem;">El Cirujano</p>
-        <h2>Ciencia que Esculpe, <br>Arte que Sana</h2>
-        <p>
-          El Dr. Filiberto (conocido en el gremio como <strong>DR.HTML</strong>) es reconocido internacionalmente por su enfoque vanguardista en la cirugía plástica, donde cada intervención es tratada como una pieza de arte única. Su filosofía se basa en la "Naturalidad Absoluta": resultados que no parecen operados, sino simplemente perfectos.
+      <div class="about-text">
+        <span class="eyebrow reveal">Trayectoria & Certificación</span>
+        <h2 class="reveal">Maestría Quirúrgica <br>en Los Altos de Jalisco</h2>
+        <p class="reveal">
+          Reconocido en el ámbito médico como <strong>DR.HTML</strong> por su precisión casi informática al esculpir cada detalle corporal, el Dr. Filiberto es un cirujano plástico, estético y reconstructivo <strong>100% certificado</strong> por el Consejo Mexicano de Cirugía Plástica (CMCPER).
         </p>
-        <p>
-          Formado en los centros médicos más prestigiosos de Europa y Latinoamérica, ha perfeccionado técnicas de Lipocirugía de Alta Definición y Rinoplastia Estructural con la precisión de un código perfecto.
+        <p class="reveal">
+          Con una filosofía anclada en el perfeccionismo y años de entrenamiento internacional, ha elegido establecer su práctica principal en <strong>Arandas, Jalisco</strong>, elevando el estándar de la cirugía estética en toda la región de Los Altos. Su enfoque se centra en técnicas avanzadas que garantizan seguridad médica, recuperación óptima y resultados de una naturalidad deslumbrante.
         </p>
-        <div class="about-signature">Dr. Filiberto (DR.HTML)</div>
+        
+        <div class="certification-badges reveal">
+          <div class="cert-item">
+            <div class="cert-icon">✦</div>
+            <div class="cert-content">
+              <h4>100% Certificado</h4>
+              <p>Miembro activo de AMCPER e ISAPS. Certificación vigente y protocolos de seguridad internacionales.</p>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-icon">✦</div>
+            <div class="cert-content">
+              <h4>Vanguardia Técnica</h4>
+              <p>Especialista en tecnología VASER, Renuvion y ultrasonido para escultura de alta definición.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -592,53 +837,91 @@
   <section id="specialties">
     <div class="container">
       <div class="section-header reveal">
-        <p>Nuestros Servicios</p>
-        <h2>Especialidades Premium</h2>
+        <span class="eyebrow">Catálogo de Excelencia</span>
+        <h2>Procedimientos <br>Insignia</h2>
+        <p>Una selección de nuestras intervenciones más demandadas, donde la experiencia del Dr. Filiberto garantiza transformaciones extraordinarias.</p>
       </div>
-      <div class="specialty-grid">
-        <!-- Card 1 -->
-        <div class="specialty-card reveal">
-          <img src="/Users/jm/.gemini/antigravity/brain/1cd7a5e4-908c-4b1d-b8b1-b01de395c0fb/liposculpture_abstract_art_1776110870788.png" alt="Liposucción HD">
-          <div class="specialty-content">
+
+      <div class="specialty-list">
+        
+        <!-- Specialty 1 -->
+        <div class="specialty-row reveal">
+          <div class="specialty-image">
+            <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80&w=1200" alt="Lipoescultura de Alta Definición">
+          </div>
+          <div class="specialty-info">
+            <span class="eyebrow">Contorno Corporal</span>
             <h3>Lipoescultura HD</h3>
-            <p>Definición muscular y contorno atlético.</p>
+            <p>Mucho más que remover grasa, la Lipoescultura de Alta Definición es el arte de cincelar el cuerpo humano. Resaltamos la musculatura natural, definiendo el abdomen, la cintura y la espalda baja para crear una silueta atlética, esbelta y armónica.</p>
+            <ul class="specialty-features">
+              <li>Definición muscular (Six-pack, líneas oblicuas)</li>
+              <li>Tecnología ultrasónica para retracción de piel</li>
+              <li>Recuperación acelerada con drenaje linfático especializado</li>
+            </ul>
+            <a href="#" class="btn btn-outline">Consultar Valoración</a>
           </div>
         </div>
-        <!-- Card 2 -->
-        <div class="specialty-card reveal" style="transition-delay: 0.2s;">
-          <img src="/Users/jm/.gemini/antigravity/brain/1cd7a5e4-908c-4b1d-b8b1-b01de395c0fb/rhinoplasty_abstract_beauty_1776110846947.png" alt="Rinoplastia">
-          <div class="specialty-content">
-            <h3>Rinoplastia</h3>
-            <p>Equilibrio facial y funcionalidad respiratoria.</p>
+
+        <!-- Specialty 2 -->
+        <div class="specialty-row reveal">
+          <div class="specialty-image">
+            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=1200" alt="Rinoplastia Estructural">
+          </div>
+          <div class="specialty-info">
+            <span class="eyebrow">Armonía Facial</span>
+            <h3>Rinoplastia Estructural</h3>
+            <p>La nariz dicta el equilibrio del rostro. La técnica estructural del Dr. Filiberto no solo perfecciona el perfil estético, sino que fortalece la función respiratoria mediante el uso de injertos cartilaginosos precisos, asegurando resultados hermosos y duraderos.</p>
+            <ul class="specialty-features">
+              <li>Resultados predecibles a largo plazo</li>
+              <li>Mejora estética sin comprometer la función nasal</li>
+              <li>Diseño personalizado asistido por computadora</li>
+            </ul>
+            <a href="#" class="btn btn-outline">Consultar Valoración</a>
           </div>
         </div>
-        <!-- Card 3 -->
-        <div class="specialty-card reveal" style="transition-delay: 0.4s;">
-          <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc2069?auto=format&fit=crop&q=80&w=800" alt="Facial Rejuvenation">
-          <div class="specialty-content">
-            <h3>Facial Lift</h3>
-            <p>Rejuvenecimiento profundo sin perder expresión.</p>
+
+        <!-- Specialty 3 -->
+        <div class="specialty-row reveal">
+          <div class="specialty-image">
+            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=1200" alt="Rejuvenecimiento Facial Integral">
+          </div>
+          <div class="specialty-info">
+            <span class="eyebrow">Juventud Preservada</span>
+            <h3>Deep Plane Facelift</h3>
+            <p>Reposicione los tejidos faciales a su estado de juventud sin la apariencia "estirada" de las técnicas antiguas. El lifting de plano profundo eleva los músculos del rostro y el cuello, devolviendo la vitalidad de hace una década con naturalidad absoluta.</p>
+            <ul class="specialty-features">
+              <li>Cicatrices ocultas e imperceptibles</li>
+              <li>Resultados naturales y duraderos (10-15 años)</li>
+              <li>Manejo integral de volumen y laxitud de la piel</li>
+            </ul>
+            <a href="#" class="btn btn-outline">Consultar Valoración</a>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- CLINIC / EXPERIENCE -->
   <section id="experience">
-    <div class="container exp-inner">
-      <img src="/Users/jm/.gemini/antigravity/brain/1cd7a5e4-908c-4b1d-b8b1-b01de395c0fb/luxury_clinic_reception_1776110627705.png" alt="Luxurious Clinic Reception" class="exp-image reveal">
-      <div class="exp-content reveal">
-        <h2>Una Experiencia <br>Fuera de lo Ordinario</h2>
-        <div>
-          <p>
-            En nuestra clínica en el corazón de Guadalajara, no solo transformamos cuerpos; cuidamos de su paz mental. Cada espacio ha sido diseñado bajo principios de neuro-arquitectura para proporcionar calma y seguridad desde el primer paso.
-          </p>
-          <p style="margin-top: 1.5rem;">
-            Tecnología de última generación, atención personalizada 24/7 y la máxima discreción son los pilares de la experiencia Dr. Filiberto.
-          </p>
-          <a href="#" class="btn btn-outline" style="margin-top: 2.5rem;">Agendar Recorrido Virtual</a>
+    <div class="container exp-grid">
+      <div class="exp-content">
+        <span class="eyebrow reveal">Instalaciones World-Class</span>
+        <h2 class="reveal">Su Santuario en <br>Los Altos de Jalisco</h2>
+        <p class="reveal">
+          La experiencia DR.HTML comienza desde el momento en que cruza nuestras puertas. Desafiamos el estándar de los consultorios médicos tradicionales diseñando una clínica en <strong>Arandas, Jalisco</strong> que respira serenidad, privacidad y lujo discreto.
+        </p>
+        <p class="reveal">
+          Ubicada estratégicamente para atender a pacientes de todo Los Altos de Jalisco, Guadalajara y pacientes internacionales, nuestra clínica está equipada con quirófanos con certificación máxima, suites de recuperación privadas y un equipo de enfermeras especializadas en cirugía plástica.
+        </p>
+        <div class="location-box reveal">
+          <h4>Clínica DR.HTML</h4>
+          <p>Arandas, Jalisco, México.<br>Atención exclusiva a pacientes en la región de Los Altos e internacionales.</p>
         </div>
+      </div>
+      <div class="exp-images reveal">
+        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1000" alt="Interior Clinic" class="exp-img-1">
+        <img src="https://images.unsplash.com/photo-1519494140681-8b17d76b8b6d?auto=format&fit=crop&q=80&w=1000" alt="Luxury Spa" class="exp-img-2">
       </div>
     </div>
   </section>
@@ -647,60 +930,70 @@
   <footer id="footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <a href="#" class="logo" style="color: var(--color-white);">DR.<span>FILIBERTO</span></a>
+        <a href="#" class="logo" style="color: var(--color-white);">DR.<span>HTML</span></a>
         <p class="footer-about">
-          Cirugía Plástica, Estética y Reconstructiva de Vanguardia. Resultados que inspiran confianza y belleza natural.
+          Arte anatómico y excelencia médica convergiendo en resultados espectaculares. Dr. Filiberto, su aliado en la búsqueda de la belleza natural en Arandas, Jalisco.
         </p>
+        <a href="#" class="btn btn-gold" style="margin-top: 1rem;">Agendar Cita en Arandas</a>
       </div>
       <div class="footer-links">
         <h4>Navegación</h4>
         <ul>
-          <li><a href="#about">Filosofía</a></li>
-          <li><a href="#specialties">Servicios</a></li>
-          <li><a href="#experience">Clínica</a></li>
+          <li><a href="#about">Dr. Filiberto</a></li>
+          <li><a href="#specialties">Procedimientos</a></li>
+          <li><a href="#experience">La Clínica</a></li>
+          <li><a href="#certifications">Certificaciones</a></li>
         </ul>
       </div>
       <div class="footer-links">
-        <h4>Contacto</h4>
+        <h4>Información</h4>
         <ul>
-          <li><a href="mailto:info@dr-html.com">info@dr-html.com</a></li>
-          <li><a href="tel:+523330000000">+52 (33) 3000 0000</a></li>
-          <li><a href="#">Guadalajara, Jal. México</a></li>
+          <li><a href="mailto:citas@dr-html.com">citas@dr-html.com</a></li>
+          <li><a href="tel:+523480000000">+52 (348) 000 0000</a></li>
+          <li><a href="#">Arandas, Jalisco, México</a></li>
+          <li><a href="#">Política de Privacidad</a></li>
         </ul>
       </div>
     </div>
     <div class="container footer-bottom">
-      <p>&copy; 2026 DR.HTML Aesthetic Surgery. Todos los derechos reservados.</p>
+      <p>&copy; 2026 DR.HTML (Dr. Filiberto) Cirugía Plástica. Todos los derechos reservados.</p>
       <p>Diseñado por Correlativa Antigravity</p>
     </div>
   </footer>
 
   <script>
-    // Reveal animations on scroll
-    window.addEventListener('scroll', () => {
+    // Intersection Observer for Reveal Animations
+    document.addEventListener("DOMContentLoaded", function() {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
       const reveals = document.querySelectorAll('.reveal');
       reveals.forEach(reveal => {
-        const windowHeight = window.innerHeight;
-        const revealTop = reveal.getBoundingClientRect().top;
-        const revealPoint = 150;
-        if (revealTop < windowHeight - revealPoint) {
-          reveal.classList.add('active');
-        }
+        observer.observe(reveal);
       });
     });
 
-    // Header scroll effect
+    // Header scroll background
     window.addEventListener('scroll', () => {
       const header = document.getElementById('header');
-      if (window.scrollY > 50) {
+      if (window.scrollY > 80) {
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
       }
     });
-
-    // Initial check for reveal
-    window.dispatchEvent(new Event('scroll'));
   </script>
 </body>
 
