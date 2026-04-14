@@ -21,6 +21,12 @@
             --spacing-xl: 100px;
             --spacing-lg: 60px;
             --spacing-md: 40px;
+            
+            /* Discipline Colors */
+            --swim-color: #00f3ff;
+            --bike-color: #ff9d00;
+            --run-color: #ff0066;
+            --gym-color: #ccff00;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -481,6 +487,179 @@
         .lightbox-close:hover {
             color: var(--neon-green);
         }
+        /* Tabs System */
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: -30px auto 60px auto;
+            position: relative;
+            z-index: 10;
+        }
+        .tab-btn {
+            background: #111;
+            border: 1px solid var(--card-border);
+            color: var(--text-dim);
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .tab-btn:hover {
+            border-color: #444;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        .tab-btn.active {
+            background: var(--text-white);
+            color: #000;
+            border-color: var(--text-white);
+            box-shadow: 0 0 20px rgba(255,255,255,0.2);
+        }
+        .tab-btn.active[data-tab="fuerza"] { background: var(--gym-color); border-color: var(--gym-color); box-shadow: 0 0 20px rgba(204, 255, 0, 0.3); }
+        .tab-btn.active[data-tab="endurance"] { background: var(--swim-color); border-color: var(--swim-color); box-shadow: 0 0 20px rgba(0, 243, 255, 0.3); }
+        .tab-btn.active[data-tab="metrics"] { background: #fff; border-color: #fff; }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Ironman Target Dashboard */
+        .sub6-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: var(--spacing-lg);
+        }
+        .target-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--card-border);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .target-card h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-dim);
+            margin-bottom: 10px;
+        }
+        .target-card .value {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.2rem;
+            line-height: 1;
+        }
+        .target-card .sub-value {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            margin-top: 5px;
+        }
+        .target-card.swim { border-top: 3px solid var(--swim-color); }
+        .target-card.bike { border-top: 3px solid var(--bike-color); }
+        .target-card.run { border-top: 3px solid var(--run-color); }
+        .target-card.total { border: 2px solid #fff; background: rgba(255,255,255,0.1); }
+
+        /* Training Plan Grid */
+        .training-plan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .plan-day-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .plan-day-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: transparent;
+        }
+        .plan-day-card:hover {
+            border-color: #444;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .plan-day-card h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.6rem;
+            color: var(--text-white);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .discipline-badges {
+            display: flex;
+            gap: 5px;
+        }
+        .discipline-badge {
+            font-size: 0.65rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 800;
+            color: #000;
+        }
+        .badge-gym { background: var(--gym-color); }
+        .badge-swim { background: var(--swim-color); }
+        .badge-bike { background: var(--bike-color); }
+        .badge-run { background: var(--run-color); }
+
+        .plan-activity {
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 1px solid #333;
+        }
+        .plan-activity .title {
+            display: block;
+            font-weight: 600;
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        .plan-activity .desc {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.5;
+        }
+        .focus-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 5px;
+            color: var(--neon-blue);
+            font-weight: 800;
+            margin-top: 10px;
+        }
+        .plan-day-card.today {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
+        }
     </style>
 
     <!-- Supabase & Chart.js -->
@@ -510,222 +689,380 @@
     <div id="daily-quote">"Cargando motivación..."</div>
 </section>
 
-<!-- Dashboard Section -->
-<section id="dashboard-section">
-    <div id="config-alert" style="display: none;">
-        <strong>⚠️ Configuración Pendiente:</strong> Abre tu código fuente (<code>gym.html</code>) e ingresa tu <i>Project URL</i> y <i>Publishable Key</i> en las primeras líneas del bloque <code>&lt;script&gt;</code> al final del archivo para activar la bitácora.
-    </div>
-    <div class="dashboard-title">Dashboard de Potencia (Lbs)</div>
-    <p style="text-align: center; color: var(--text-dim); margin-bottom: 20px;">Suma de tu volumen total del día</p>
-    <canvas id="progressChart" width="800" height="250"></canvas>
-</section>
-
 <div class="container">
+    <div class="tabs-container">
+        <button class="tab-btn active" data-tab="fuerza">
+            <span>⚡</span> FUERZA
+        </button>
+        <button class="tab-btn" data-tab="endurance">
+            <span>🏊‍♂️</span> ENDURANCE
+        </button>
+        <button class="tab-btn" data-tab="metrics">
+            <span>📊</span> MÉTRICAS
+        </button>
+    </div>
 
-    <section class="master-advice">
-        <div class="advice-box">
-            <h2>Sobrecarga Progresiva</h2>
-            <p>La regla de oro de la v4: Si completas las 3 series de un ejercicio llegando al máximo de repeticiones indicadas (ej. 6 reps), <b>debes subir el peso</b> en tu próxima sesión (2.5kg - 5kg). Si no logras el mínimo (ej. 4 reps), mantén el peso hasta ganar fuerza.</p>
-        </div>
-        <div class="advice-box">
-            <h2>El Arte del Descanso</h2>
-            <p>Descansa <b>3 minutos</b> completos entre series de ejercicios pesados con barra, y <b>2 minutos</b> en ejercicios con mancuernas o poleas. Usa ese tiempo para visualizar la siguiente serie, no para ver el celular.</p>
-        </div>
-    </section>
+    <!-- TAB: FUERZA -->
+    <div id="fuerza" class="tab-content active">
+        <section class="master-advice">
+            <div class="advice-box">
+                <h2>Sobrecarga Progresiva</h2>
+                <p>La regla de oro de la v4: Si completas las 3 series de un ejercicio llegando al máximo de repeticiones indicadas (ej. 6 reps), <b>debes subir el peso</b> en tu próxima sesión (2.5kg - 5kg). Si no logras el mínimo (ej. 4 reps), mantén el peso hasta ganar fuerza.</p>
+            </div>
+            <div class="advice-box">
+                <h2>El Arte del Descanso</h2>
+                <p>Descansa <b>3 minutos</b> completos entre series de ejercicios pesados con barra, y <b>2 minutos</b> en ejercicios con mancuernas o poleas. Usa ese tiempo para visualizar la siguiente serie, no para ver el celular.</p>
+            </div>
+        </section>
 
-    <section class="day-section">
+        <section class="day-section">
+            <div class="day-header">
+                <h2>Día 1: Empuje</h2>
+                <p>Pecho, Hombros y Tríceps</p>
+            </div>
+
+            <div class="warmup-card">
+                <h3>Calentamiento General (Pre-Compuesto)</h3>
+                <p>Realiza 5-10 minutos de movilidad articular. Para el primer ejercicio (Press de Banca), haz 1 serie de 12 reps solo con la barra, 1 serie de 8 reps al 50% de tu peso de trabajo, y 1 serie de 4 reps al 75%. Luego inicia tus series reales.</p>
+            </div>
+
+            <div class="exercise-card">
+                <img class="exercise-img" src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop" alt="Bench Press">
+                <div class="exercise-content">
+                    <span class="series-tag">3 SERIES x 4-6 REPS</span>
+                    <h3 class="name-es">Press de Banca con Barra</h3>
+                    <span class="name-en">Barbell Bench Press</span>
+                    <p class="detailed-desc">
+                        <b>Técnica Maestra:</b> Acuéstate en el banco, retrae las escápulas (junta los omóplatos) y mantén un ligero arco en la espalda baja. Tus pies deben estar firmemente plantados en el suelo.
+                        <br><br><b>Ejecución:</b> Baja la barra con control hasta que roce la parte media de tu pecho. Empuja con fuerza explosiva hacia arriba. Este ejercicio es la base de tu fuerza de empuje frontal.
+                    </p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <img class="exercise-img" src="https://images.unsplash.com/photo-1541534741688-6078c6bc35e5?q=80&w=800&auto=format&fit=crop" alt="Incline Bench">
+                <div class="exercise-content">
+                    <span class="series-tag">3 SERIES x 4-6 REPS</span>
+                    <h3 class="name-es">Press de Banca Inclinado</h3>
+                    <span class="name-en">Incline Barbell Bench Press</span>
+                    <p class="detailed-desc">
+                        <b>Técnica Maestra:</b> Ajusta el banco a unos 30 o 45 grados. El agarre debe ser ligeramente más ancho que tus hombros.
+                        <br><br><b>Ejecución:</b> Baja la barra hacia la parte superior de tu pecho (cerca de las clavículas). Este ángulo traslada el trabajo principal al haz clavicular del pectoral, dando un aspecto más lleno y denso al pecho superior.
+                    </p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <img class="exercise-img" src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=800&auto=format&fit=crop" alt="Dumbbell Press">
+                <div class="exercise-content">
+                    <span class="series-tag">3 SERIES x 4-6 REPS</span>
+                    <h3 class="name-es">Press de Banca con Mancuernas</h3>
+                    <span class="name-en">Dumbbell Bench Press</span>
+                    <p class="detailed-desc">
+                        <b>Técnica Maestra:</b> Posiciónate en un banco plano. Las mancuernas obligan a cada lado de tu cuerpo a trabajar de forma independiente, corrigiendo desequilibrios de fuerza.
+                        <br><br><b>Ejecución:</b> Baja las mancuernas hasta sentir un buen estiramiento en el pecho. Al empujar hacia arriba, acércalas ligeramente (sin que choquen) para una contracción máxima.
+                    </p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <img class="exercise-img" src="assets/gym/triceps_pushdown.png" alt="Triceps Pushdown">
+                <div class="exercise-content">
+                    <span class="series-tag">3 SERIES x 6-8 REPS</span>
+                    <h3 class="name-es">Extensión de Tríceps en Polea</h3>
+                    <span class="name-en">Triceps Cable Pushdown</span>
+                    <p class="detailed-desc">
+                        <b>Técnica Maestra:</b> Párate frente a la polea (alta). Mantén los codos pegados a las costillas en todo momento. Si tus codos se mueven hacia adelante y atrás, estás usando la espalda.
+                        <br><br><b>Ejecución:</b> Empuja la barra o cuerda hacia abajo hasta bloquear los codos por completo. Sube de manera controlada resistiendo el peso.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="day-section">
+            <div class="day-header">
+                <h2>Día 2: Tracción</h2>
+                <p>Espalda y Bíceps</p>
+            </div>
+
+            <div class="warmup-card">
+                <h3>Calentamiento para Cadena Posterior</h3>
+                <p>Haz 2 series de "Buenos Días" sin peso o con tubo de PVC (15 reps) para activar lumbares e isquiotibiales. Realiza tu esquema de rampa de calentamiento (barra sola, 50%, 75%) específico para el Peso Muerto antes de tus series de trabajo.</p>
+            </div>
+
+            <div class="exercise-card">
+                <img class="exercise-img" src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?q=80&w=800&auto=format&fit=crop" alt="Deadlift">
+                <div class="exercise-content">
+                    <span class="series-tag">3 SERIES x 4-6 REPS</span>
+                    <h3 class="name-es">Peso Muerto con Barra</h3>
+                    <span class="name-en">Barbell Deadlift</span>
+                    <p class="detailed-desc">
+                        <b>Técnica Maestra:</b> Párate con la barra sobre la mitad de tu pie. Flexiona las caderas y rodillas, agarra la barra, saca el pecho y pon la espalda recta y firme antes de jalar.
+                        <br><br><b>Ejecución:</b> Empuja el suelo con las piernas y levanta el torso simultáneamente. La barra debe rozar tus espinillas y muslos al subir. No te inclines hacia atrás al final del movimiento.
+                    </p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <img class="exercise-img" src="https://images.unsplash.com/photo-1603287611837-f2146f5de26b?q=80&w=800&auto=format&fit=crop" alt="Dumbbell Row">
+                <div class="exercise-content">
+                    <span class="series-tag">3 SERIES x 4-6 REPS</span>
+                    <h3 class="name-es">Remo con Mancuerna a una Mano</h3>
+                    <span class="name-en">One-Arm Dumbbell Row</span>
+                    <p class="detailed-desc">
+                        <b>Técnica Maestra:</b> Apoya una rodilla y una mano sobre un banco plano. Tu espalda debe estar paralela al piso, neutral y firme.
+                        <br><br><b>Ejecución:</b> Inicia el movimiento tirando del codo hacia el techo y ligeramente hacia tu cadera. Aprieta el músculo dorsal en la cima y baja lentamente hasta extender el brazo por completo.
+                    </p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <img class="exercise-img" src="https://images.unsplash.com/photo-1598971639058-fab3c32f850e?q=80&w=800&auto=format&fit=crop" alt="Lat Pulldown">
+                <div class="exercise-content">
+                    <span class="series-tag">3 SERIES x 6-8 REPS</span>
+                    <h3 class="name-es">Jalón al Pecho (Agarre Medio)</h3>
+                    <span class="name-en">Medium-Grip Lat Pulldown</span>
+                    <p class="detailed-desc">
+                        <b>Técnica Maestra:</b> Toma la barra con un agarre apenas más ancho que tus hombros. Siéntate, ancla bien tus piernas y saca el pecho.
+                        <br><br><b>Ejecución:</b> Jala la barra hacia la parte alta de tu pecho (esternón) dirigiendo el movimiento con los codos hacia abajo y hacia atrás. No te balancees excesivamente hacia atrás al jalar.
+                    </p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <img class="exercise-img" src="https://images.unsplash.com/photo-1581009137042-c552e485697a?q=80&w=800&auto=format&fit=crop" alt="Bicep Curl">
+                <div class="exercise-content">
+                    <span class="series-tag">3 SERIES x 6-8 REPS</span>
+                    <h3 class="name-es">Curl de Bíceps Alterno</h3>
+                    <span class="name-en">Alternating Dumbbell Curl</span>
+                    <p class="detailed-desc">
+                        <b>Técnica Maestra:</b> De pie o sentado, mantén los codos fijos a los lados de tu torso. Evita usar el impulso del cuerpo (no te balancees).
+                        <br><br><b>Ejecución:</b> Sube una mancuerna mientras rotas la muñeca hacia afuera (supinación) para que la palma mire hacia tu hombro en el punto máximo. Contrae fuerte y baja controlado antes de alternar de brazo.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="day-section">
+            <div class="day-header">
+                <h2>Día 3: Tren Inferior</h2>
+                <p>Cuádriceps, Isquiotibiales y Glúteos</p>
+            </div>
+
+            <div class="warmup-card">
+                <h3>Calentamiento de Tren Inferior</h3>
+                <p>Abre tus caderas: haz 10 sentadillas profundas con tu propio peso, pausando 3 segundos abajo. Haz desplantes dinámicos sin peso. Realiza tus series de rampa en la Sentadilla con Barra para preparar el sistema nervioso antes de los sets pesados.</p>
+            </div>
+
+            <div class="exercise-card">
+                <img class="exercise-img" src="https://images.unsplash.com/photo-1566241440091-ec10de8db2e1?q=80&w=800&auto=format&fit=crop" alt="Squat">
+                <div class="exercise-content">
+                    <span class="series-tag">3 SERIES x 4-6 REPS</span>
+                    <h3 class="name-es">Sentadilla con Barra</h3>
+                    <span class="name-en">Barbell Squat</span>
+                    <p class="detailed-desc">
+                        <b>Técnica Maestra:</b> Coloca la barra descansando sobre los músculos trapecios, saca el pecho y tensa el abdomen como si fueras a recibir un golpe. 
+                        <br><br><b>Ejecución:</b> Rompe el movimiento desde la cadera y las rodillas a la vez. Baja profundo, asegurándote que la parte superior de tus muslos quede paralela (o más abajo) respecto al piso. Empuja fuerte desde toda la planta del pie.
+                    </p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <img class="exercise-img" src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=800&auto=format&fit=crop" alt="Leg Curl">
+                <div class="exercise-content">
+                    <span class="series-tag">3 SERIES x 6-8 REPS</span>
+                    <h3 class="name-es">Curl de Piernas (Máquina)</h3>
+                    <span class="name-en">Lying or Seated Leg Curl</span>
+                    <p class="detailed-desc">
+                        <b>Técnica Maestra:</b> Asegúrate de alinear la articulación de tu rodilla con el eje de rotación de la máquina. Ajusta el rodillo justo por encima del talón.
+                        <br><br><b>Ejecución:</b> Contrae los isquiotibiales (parte trasera de la pierna) para flexionar las rodillas lo más posible. Aguanta 1 segundo en la contracción máxima y regresa la carga lentamente.
+                    </p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <img class="exercise-img" src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?q=80&w=800&auto=format&fit=crop" alt="Leg Press">
+                <div class="exercise-content">
+                    <span class="series-tag">3 SERIES x 6-8 REPS</span>
+                    <h3 class="name-es">Prensa de Piernas</h3>
+                    <span class="name-en">Leg Press</span>
+                    <p class="detailed-desc">
+                        <b>Técnica Maestra:</b> Apoya toda la espalda y la cabeza en el respaldo. Coloca los pies en el centro de la plataforma a la anchura de los hombros.
+                        <br><br><b>Ejecución:</b> Baja la plataforma controladamente hasta que tus rodillas formen un ángulo de 90 grados (o hasta donde tu movilidad permita sin que tu zona lumbar se despegue). Empuja con fuerza, <b>sin bloquear totalmente las rodillas al final</b>.
+                    </p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <img class="exercise-img" src="https://images.unsplash.com/photo-1434682881908-b43d0467b798?q=80&w=800&auto=format&fit=crop" alt="Lunges">
+                <div class="exercise-content">
+                    <span class="series-tag">3 SERIES x 6-8 REPS</span>
+                    <h3 class="name-es">Estocadas con Mancuernas</h3>
+                    <span class="name-en">Dumbbell Lunges</span>
+                    <p class="detailed-desc">
+                        <b>Técnica Maestra:</b> Sujeta un par de mancuernas a los lados de tu cuerpo. Mantén el pecho arriba y la mirada al frente en todo momento.
+                        <br><br><b>Ejecución:</b> Da un paso largo hacia adelante y flexiona ambas rodillas. La rodilla trasera debe quedar a centímetros del suelo y la delantera no debe sobrepasar excesivamente la punta del pie. Empuja con la pierna delantera para regresar a la posición inicial.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- TAB: ENDURANCE -->
+    <div id="endurance" class="tab-content">
         <div class="day-header">
-            <h2>Día 1: Empuje</h2>
-            <p>Pecho, Hombros y Tríceps</p>
+            <h2>Road to Sub-6</h2>
+            <p>Estrategia Ironman 70.3 Santa Cruz</p>
         </div>
 
-        <div class="warmup-card">
-            <h3>Calentamiento General (Pre-Compuesto)</h3>
-            <p>Realiza 5-10 minutos de movilidad articular. Para el primer ejercicio (Press de Banca), haz 1 serie de 12 reps solo con la barra, 1 serie de 8 reps al 50% de tu peso de trabajo, y 1 serie de 4 reps al 75%. Luego inicia tus series reales.</p>
-        </div>
-
-        <div class="exercise-card">
-            <img class="exercise-img" src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop" alt="Bench Press">
-            <div class="exercise-content">
-                <span class="series-tag">3 SERIES x 4-6 REPS</span>
-                <h3 class="name-es">Press de Banca con Barra</h3>
-                <span class="name-en">Barbell Bench Press</span>
-                <p class="detailed-desc">
-                    <b>Técnica Maestra:</b> Acuéstate en el banco, retrae las escápulas (junta los omóplatos) y mantén un ligero arco en la espalda baja. Tus pies deben estar firmemente plantados en el suelo.
-                    <br><br><b>Ejecución:</b> Baja la barra con control hasta que roce la parte media de tu pecho. Empuja con fuerza explosiva hacia arriba. Este ejercicio es la base de tu fuerza de empuje frontal.
-                </p>
+        <div class="sub6-dashboard">
+            <div class="target-card swim">
+                <h4>Swim 1.9km</h4>
+                <div class="value" style="color: var(--swim-color)">00:38:00</div>
+                <div class="sub-value">Pace: 2:00 min/100m</div>
+            </div>
+            <div class="target-card bike">
+                <h4>Bike 90km</h4>
+                <div class="value" style="color: var(--bike-color)">03:10:00</div>
+                <div class="sub-value">Avg: 28.5 km/h</div>
+            </div>
+            <div class="target-card run">
+                <h4>Run 21.1km</h4>
+                <div class="value" style="color: var(--run-color)">01:55:00</div>
+                <div class="sub-value">Pace: 5:27 min/km</div>
+            </div>
+            <div class="target-card total">
+                <h4>Target Total</h4>
+                <div class="value">05:53:00</div>
+                <div class="sub-value">Incluye T1 + T2 (10 min)</div>
             </div>
         </div>
 
-        <div class="exercise-card">
-            <img class="exercise-img" src="https://images.unsplash.com/photo-1541534741688-6078c6bc35e5?q=80&w=800&auto=format&fit=crop" alt="Incline Bench">
-            <div class="exercise-content">
-                <span class="series-tag">3 SERIES x 4-6 REPS</span>
-                <h3 class="name-es">Press de Banca Inclinado</h3>
-                <span class="name-en">Incline Barbell Bench Press</span>
-                <p class="detailed-desc">
-                    <b>Técnica Maestra:</b> Ajusta el banco a unos 30 o 45 grados. El agarre debe ser ligeramente más ancho que tus hombros.
-                    <br><br><b>Ejecución:</b> Baja la barra hacia la parte superior de tu pecho (cerca de las clavículas). Este ángulo traslada el trabajo principal al haz clavicular del pectoral, dando un aspecto más lleno y denso al pecho superior.
-                </p>
+        <div class="warmup-card" style="border-left-color: var(--neon-blue);">
+            <h3>Microciclo de Entrenamiento</h3>
+            <p>Estructura fija semanal que integra Natación, Ciclismo, Carrera y tu rutina de Fuerza Matthews.</p>
+        </div>
+
+        <div class="training-plan-grid">
+            <!-- LUNES -->
+            <div class="plan-day-card">
+                <h4>Lunes <div class="discipline-badges"><span class="discipline-badge badge-gym">Gym</span><span class="discipline-badge badge-run">Run</span></div></h4>
+                <div class="plan-activity">
+                    <span class="title">Gimnasio (Push)</span>
+                    <span class="desc">Pecho, Hombros y Tríceps. Enfoque en sobrecarga progresiva.</span>
+                </div>
+                <div class="plan-activity">
+                    <span class="title">Carrera Suave</span>
+                    <span class="desc">30-40 min. Mantener ritmo conversacional para no agotar piernas.</span>
+                </div>
+                <div class="focus-tag">80% INTENSIDAD (Z2)</div>
+            </div>
+
+            <!-- MARTES -->
+            <div class="plan-day-card">
+                <h4>Martes <div class="discipline-badges"><span class="discipline-badge badge-swim">Swim</span><span class="discipline-badge badge-bike">Bike</span></div></h4>
+                <div class="plan-activity">
+                    <span class="title">Natación (Clase)</span>
+                    <span class="desc">Intervalos intensos y técnica. Aprovechar el nado guiado.</span>
+                </div>
+                <div class="plan-activity">
+                    <span class="title">Ciclismo Suave</span>
+                    <span class="desc">Recuperación activa en Z1. Rodaje muy ligero.</span>
+                </div>
+                <div class="focus-tag">20% INTENSIDAD (Z4)</div>
+            </div>
+
+            <!-- MIÉRCOLES -->
+            <div class="plan-day-card">
+                <h4>Miércoles <div class="discipline-badges"><span class="discipline-badge badge-gym">Gym</span><span class="discipline-badge badge-run">Run</span></div></h4>
+                <div class="plan-activity">
+                    <span class="title">Gimnasio (Pull)</span>
+                    <span class="desc">Peso Muerto, Espalda y Bíceps.</span>
+                </div>
+                <div class="plan-activity">
+                    <span class="title">Carrera de Intervalos</span>
+                    <span class="desc">Series cortas. Sesión clave para ganar velocidad.</span>
+                </div>
+                <div class="focus-tag">20% INTENSIDAD (Z4/5)</div>
+            </div>
+
+            <!-- JUEVES -->
+            <div class="plan-day-card">
+                <h4>Jueves <div class="discipline-badges"><span class="discipline-badge badge-swim">Swim</span><span class="discipline-badge badge-bike">Bike</span></div></h4>
+                <div class="plan-activity">
+                    <span class="title">Natación (Clase)</span>
+                    <span class="desc">Enfoque en técnica y resistencia base.</span>
+                </div>
+                <div class="plan-activity">
+                    <span class="title">Ciclismo Resistencia</span>
+                    <span class="desc">Rodaje constante en Z2. Construcción de volumen muscular.</span>
+                </div>
+                <div class="focus-tag">80% INTENSIDAD (Z2)</div>
+            </div>
+
+            <!-- VIERNES -->
+            <div class="plan-day-card" style="border-left: 4px solid var(--gym-color);">
+                <h4>Viernes <div class="discipline-badges"><span class="discipline-badge badge-gym">Gym</span></div></h4>
+                <div class="plan-activity">
+                    <span class="title">Gimnasio (Legs)</span>
+                    <span class="desc">Sentadillas y accesorios. Día pesado, evitar impacto aeróbico.</span>
+                </div>
+                <div class="focus-tag">DESCANSO AERÓBICO</div>
+            </div>
+
+            <!-- SÁBADO -->
+            <div class="plan-day-card" style="border-left: 4px solid var(--bike-color);">
+                <h4>Sábado <div class="discipline-badges"><span class="discipline-badge badge-bike">Bike</span><span class="discipline-badge badge-run">Run</span></div></h4>
+                <div class="plan-activity">
+                    <span class="title">Entrenamiento "Brick"</span>
+                    <span class="desc">1.5h Bici + 20 min Correr. Transición fluida.</span>
+                </div>
+                <div class="focus-tag">80% INTENSIDAD (Z2)</div>
+            </div>
+
+            <!-- DOMINGO -->
+            <div class="plan-day-card" style="border-left: 4px solid var(--bike-color);">
+                <h4>Domingo <div class="discipline-badges"><span class="discipline-badge badge-bike">Bike</span></div></h4>
+                <div class="plan-activity">
+                    <span class="title">Ciclismo Largo</span>
+                    <span class="desc">2.5h a 4h. Ganar resistencia muscular y eficiencia metabólica.</span>
+                </div>
+                <div class="focus-tag">80% INTENSIDAD (Z2)</div>
             </div>
         </div>
+    </div>
 
-        <div class="exercise-card">
-            <img class="exercise-img" src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=800&auto=format&fit=crop" alt="Dumbbell Press">
-            <div class="exercise-content">
-                <span class="series-tag">3 SERIES x 4-6 REPS</span>
-                <h3 class="name-es">Press de Banca con Mancuernas</h3>
-                <span class="name-en">Dumbbell Bench Press</span>
-                <p class="detailed-desc">
-                    <b>Técnica Maestra:</b> Posiciónate en un banco plano. Las mancuernas obligan a cada lado de tu cuerpo a trabajar de forma independiente, corrigiendo desequilibrios de fuerza.
-                    <br><br><b>Ejecución:</b> Baja las mancuernas hasta sentir un buen estiramiento en el pecho. Al empujar hacia arriba, acércalas ligeramente (sin que choquen) para una contracción máxima.
-                </p>
+    <!-- TAB: METRICS -->
+    <div id="metrics" class="tab-content">
+        <section id="dashboard-section">
+            <div id="config-alert" style="display: none;">
+                <strong>⚠️ Configuración Pendiente:</strong> Abre tu código fuente (<code>gym.html</code>) e ingresa tu <i>Project URL</i> y <i>Publishable Key</i> en las primeras líneas del bloque <code>&lt;script&gt;</code> al final del archivo para activar la bitácora.
             </div>
-        </div>
-
-        <div class="exercise-card">
-            <img class="exercise-img" src="assets/gym/triceps_pushdown.png" alt="Triceps Pushdown">
-            <div class="exercise-content">
-                <span class="series-tag">3 SERIES x 6-8 REPS</span>
-                <h3 class="name-es">Extensión de Tríceps en Polea</h3>
-                <span class="name-en">Triceps Cable Pushdown</span>
-                <p class="detailed-desc">
-                    <b>Técnica Maestra:</b> Párate frente a la polea (alta). Mantén los codos pegados a las costillas en todo momento. Si tus codos se mueven hacia adelante y atrás, estás usando la espalda.
-                    <br><br><b>Ejecución:</b> Empuja la barra o cuerda hacia abajo hasta bloquear los codos por completo. Sube de manera controlada resistiendo el peso.
-                </p>
+            <div class="dashboard-title">Dashboard del Guerrero</div>
+            
+            <div class="metrics-grid">
+                <div class="chart-container">
+                    <p style="text-align: center; color: var(--text-dim); margin-bottom: 20px;">Evolución de Volumen y Cargas</p>
+                    <canvas id="progressChart" width="800" height="400"></canvas>
+                </div>
+                <div class="summary-stats">
+                    <div class="target-card" style="margin-bottom: 15px;">
+                        <h4>Volumen Total Semanal</h4>
+                        <div class="value" id="total-weekly-volume">0</div>
+                        <div class="sub-value">Lbs levantadas esta semana</div>
+                    </div>
+                    <div class="target-card" style="margin-bottom: 15px;">
+                        <h4>Días Entrenados (2026)</h4>
+                        <div class="value" id="days-trained">0</div>
+                        <div class="sub-value">Sesiones registradas</div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
-
-    <section class="day-section">
-        <div class="day-header">
-            <h2>Día 2: Tracción</h2>
-            <p>Espalda y Bíceps</p>
-        </div>
-
-        <div class="warmup-card">
-            <h3>Calentamiento para Cadena Posterior</h3>
-            <p>Haz 2 series de "Buenos Días" sin peso o con tubo de PVC (15 reps) para activar lumbares e isquiotibiales. Realiza tu esquema de rampa de calentamiento (barra sola, 50%, 75%) específico para el Peso Muerto antes de tus series de trabajo.</p>
-        </div>
-
-        <div class="exercise-card">
-            <img class="exercise-img" src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?q=80&w=800&auto=format&fit=crop" alt="Deadlift">
-            <div class="exercise-content">
-                <span class="series-tag">3 SERIES x 4-6 REPS</span>
-                <h3 class="name-es">Peso Muerto con Barra</h3>
-                <span class="name-en">Barbell Deadlift</span>
-                <p class="detailed-desc">
-                    <b>Técnica Maestra:</b> Párate con la barra sobre la mitad de tu pie. Flexiona las caderas y rodillas, agarra la barra, saca el pecho y pon la espalda recta y firme antes de jalar.
-                    <br><br><b>Ejecución:</b> Empuja el suelo con las piernas y levanta el torso simultáneamente. La barra debe rozar tus espinillas y muslos al subir. No te inclines hacia atrás al final del movimiento.
-                </p>
-            </div>
-        </div>
-
-        <div class="exercise-card">
-            <img class="exercise-img" src="https://images.unsplash.com/photo-1603287611837-f2146f5de26b?q=80&w=800&auto=format&fit=crop" alt="Dumbbell Row">
-            <div class="exercise-content">
-                <span class="series-tag">3 SERIES x 4-6 REPS</span>
-                <h3 class="name-es">Remo con Mancuerna a una Mano</h3>
-                <span class="name-en">One-Arm Dumbbell Row</span>
-                <p class="detailed-desc">
-                    <b>Técnica Maestra:</b> Apoya una rodilla y una mano sobre un banco plano. Tu espalda debe estar paralela al piso, neutral y firme.
-                    <br><br><b>Ejecución:</b> Inicia el movimiento tirando del codo hacia el techo y ligeramente hacia tu cadera. Aprieta el músculo dorsal en la cima y baja lentamente hasta extender el brazo por completo.
-                </p>
-            </div>
-        </div>
-
-        <div class="exercise-card">
-            <img class="exercise-img" src="https://images.unsplash.com/photo-1598971639058-fab3c32f850e?q=80&w=800&auto=format&fit=crop" alt="Lat Pulldown">
-            <div class="exercise-content">
-                <span class="series-tag">3 SERIES x 6-8 REPS</span>
-                <h3 class="name-es">Jalón al Pecho (Agarre Medio)</h3>
-                <span class="name-en">Medium-Grip Lat Pulldown</span>
-                <p class="detailed-desc">
-                    <b>Técnica Maestra:</b> Toma la barra con un agarre apenas más ancho que tus hombros. Siéntate, ancla bien tus piernas y saca el pecho.
-                    <br><br><b>Ejecución:</b> Jala la barra hacia la parte alta de tu pecho (esternón) dirigiendo el movimiento con los codos hacia abajo y hacia atrás. No te balancees excesivamente hacia atrás al jalar.
-                </p>
-            </div>
-        </div>
-
-        <div class="exercise-card">
-            <img class="exercise-img" src="https://images.unsplash.com/photo-1581009137042-c552e485697a?q=80&w=800&auto=format&fit=crop" alt="Bicep Curl">
-            <div class="exercise-content">
-                <span class="series-tag">3 SERIES x 6-8 REPS</span>
-                <h3 class="name-es">Curl de Bíceps Alterno</h3>
-                <span class="name-en">Alternating Dumbbell Curl</span>
-                <p class="detailed-desc">
-                    <b>Técnica Maestra:</b> De pie o sentado, mantén los codos fijos a los lados de tu torso. Evita usar el impulso del cuerpo (no te balancees).
-                    <br><br><b>Ejecución:</b> Sube una mancuerna mientras rotas la muñeca hacia afuera (supinación) para que la palma mire hacia tu hombro en el punto máximo. Contrae fuerte y baja controlado antes de alternar de brazo.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="day-section">
-        <div class="day-header">
-            <h2>Día 3: Tren Inferior</h2>
-            <p>Cuádriceps, Isquiotibiales y Glúteos</p>
-        </div>
-
-        <div class="warmup-card">
-            <h3>Calentamiento de Tren Inferior</h3>
-            <p>Abre tus caderas: haz 10 sentadillas profundas con tu propio peso, pausando 3 segundos abajo. Haz desplantes dinámicos sin peso. Realiza tus series de rampa en la Sentadilla con Barra para preparar el sistema nervioso antes de los sets pesados.</p>
-        </div>
-
-        <div class="exercise-card">
-            <img class="exercise-img" src="https://images.unsplash.com/photo-1566241440091-ec10de8db2e1?q=80&w=800&auto=format&fit=crop" alt="Squat">
-            <div class="exercise-content">
-                <span class="series-tag">3 SERIES x 4-6 REPS</span>
-                <h3 class="name-es">Sentadilla con Barra</h3>
-                <span class="name-en">Barbell Squat</span>
-                <p class="detailed-desc">
-                    <b>Técnica Maestra:</b> Coloca la barra descansando sobre los músculos trapecios, saca el pecho y tensa el abdomen como si fueras a recibir un golpe. 
-                    <br><br><b>Ejecución:</b> Rompe el movimiento desde la cadera y las rodillas a la vez. Baja profundo, asegurándote que la parte superior de tus muslos quede paralela (o más abajo) respecto al piso. Empuja fuerte desde toda la planta del pie.
-                </p>
-            </div>
-        </div>
-
-        <div class="exercise-card">
-            <img class="exercise-img" src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=800&auto=format&fit=crop" alt="Leg Curl">
-            <div class="exercise-content">
-                <span class="series-tag">3 SERIES x 6-8 REPS</span>
-                <h3 class="name-es">Curl de Piernas (Máquina)</h3>
-                <span class="name-en">Lying or Seated Leg Curl</span>
-                <p class="detailed-desc">
-                    <b>Técnica Maestra:</b> Asegúrate de alinear la articulación de tu rodilla con el eje de rotación de la máquina. Ajusta el rodillo justo por encima del talón.
-                    <br><br><b>Ejecución:</b> Contrae los isquiotibiales (parte trasera de la pierna) para flexionar las rodillas lo más posible. Aguanta 1 segundo en la contracción máxima y regresa la carga lentamente.
-                </p>
-            </div>
-        </div>
-
-        <div class="exercise-card">
-            <img class="exercise-img" src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?q=80&w=800&auto=format&fit=crop" alt="Leg Press">
-            <div class="exercise-content">
-                <span class="series-tag">3 SERIES x 6-8 REPS</span>
-                <h3 class="name-es">Prensa de Piernas</h3>
-                <span class="name-en">Leg Press</span>
-                <p class="detailed-desc">
-                    <b>Técnica Maestra:</b> Apoya toda la espalda y la cabeza en el respaldo. Coloca los pies en el centro de la plataforma a la anchura de los hombros.
-                    <br><br><b>Ejecución:</b> Baja la plataforma controladamente hasta que tus rodillas formen un ángulo de 90 grados (o hasta donde tu movilidad permita sin que tu zona lumbar se despegue). Empuja con fuerza, <b>sin bloquear totalmente las rodillas al final</b>.
-                </p>
-            </div>
-        </div>
-
-        <div class="exercise-card">
-            <img class="exercise-img" src="https://images.unsplash.com/photo-1434682881908-b43d0467b798?q=80&w=800&auto=format&fit=crop" alt="Lunges">
-            <div class="exercise-content">
-                <span class="series-tag">3 SERIES x 6-8 REPS</span>
-                <h3 class="name-es">Estocadas con Mancuernas</h3>
-                <span class="name-en">Dumbbell Lunges</span>
-                <p class="detailed-desc">
-                    <b>Técnica Maestra:</b> Sujeta un par de mancuernas a los lados de tu cuerpo. Mantén el pecho arriba y la mirada al frente en todo momento.
-                    <br><br><b>Ejecución:</b> Da un paso largo hacia adelante y flexiona ambas rodillas. La rodilla trasera debe quedar a centímetros del suelo y la delantera no debe sobrepasar excesivamente la punta del pie. Empuja con la pierna delantera para regresar a la posición inicial.
-                </p>
-            </div>
-        </div>
-    </section>
-
+        </section>
+    </div>
 </div>
+
+
 
 <script>
     // --- VARIABLES DE SUPABASE (¡PEGA TUS DATOS AQUÍ!) ---
@@ -953,13 +1290,25 @@
 
         // Calcular volumen total por día sumando los maximos levantados
         const dailyTotals = {};
+        let totalVolume = 0;
+        const trainDays = new Set();
         
         Object.keys(exerciseData).forEach(exId => {
             exerciseData[exId].forEach(record => {
                 if (!dailyTotals[record.date]) dailyTotals[record.date] = 0;
                 dailyTotals[record.date] += record.weight;
+                
+                // Stats globales
+                totalVolume += record.weight;
+                trainDays.add(record.date);
             });
         });
+
+        // Actualizar UI de stats
+        const volumeEl = document.getElementById('total-weekly-volume');
+        const daysEl = document.getElementById('days-trained');
+        if (volumeEl) volumeEl.innerText = totalVolume.toLocaleString();
+        if (daysEl) daysEl.innerText = trainDays.size;
 
         const sortedDates = Object.keys(dailyTotals).sort();
         const dataValues = sortedDates.map(date => dailyTotals[date]);
@@ -994,6 +1343,7 @@
                 },
                 options: {
                     responsive: true,
+                    maintainAspectRatio: false,
                     plugins: {
                         legend: { labels: { color: '#999', font: { family: 'Inter' } } }
                     },
@@ -1030,11 +1380,49 @@
         });
     }
 
+    // --- SISTEMA DE TABS ---
+    function initTabs() {
+        const tabs = document.querySelectorAll('.tab-btn');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.getAttribute('data-tab');
+
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+
+                tab.classList.add('active');
+                document.getElementById(target).classList.add('active');
+                
+                // Forzar resize de Chart.js si se abre la pestaña de métricas
+                if (target === 'metrics' && progressChart) {
+                    setTimeout(() => progressChart.resize(), 100);
+                }
+            });
+        });
+    }
+
+    function highlightToday() {
+        const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+        const todayName = days[new Date().getDay()];
+        const dayCards = document.querySelectorAll('.plan-day-card');
+        
+        dayCards.forEach(card => {
+            const h4Text = card.querySelector('h4').innerText;
+            if (h4Text.includes(todayName)) {
+                card.classList.add('today');
+            }
+        });
+    }
+
     // ARRANQUE
     window.onload = () => {
         loadQuote();
+        initTabs();
         initTracker();
         initLightbox();
+        highlightToday();
     };
 </script>
 
