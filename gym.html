@@ -575,41 +575,64 @@
         .target-card.run { border-top: 3px solid var(--run-color); }
         .target-card.total { border: 2px solid #fff; background: rgba(255,255,255,0.1); }
 
-        /* Training Plan Grid */
+        /* Training Plan Vertical Layout */
         .training-plan-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
             margin-top: 40px;
         }
         .plan-day-card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 20px;
-            padding: 30px;
+            padding: 35px;
+            display: grid;
+            grid-template-columns: 180px 1fr 200px;
+            gap: 30px;
+            align-items: center;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            overflow: hidden;
         }
-        .plan-day-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 4px; height: 100%;
-            background: transparent;
-        }
-        .plan-day-card:hover {
-            border-color: #444;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .plan-day-card h4 {
+        .day-info h4 {
             font-family: 'Oswald', sans-serif;
-            font-size: 1.6rem;
+            font-size: 2.2rem;
             color: var(--text-white);
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            line-height: 1;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .duration-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.05);
+            color: var(--neon-blue);
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            border: 1px solid rgba(0, 243, 255, 0.2);
+        }
+        .session-details {
+            border-left: 2px solid #222;
+            padding-left: 30px;
+        }
+        .plan-activity {
+            margin-bottom: 15px;
+        }
+        .plan-activity:last-child { margin-bottom: 0; }
+
+        @media (max-width: 900px) {
+            .plan-day-card {
+                grid-template-columns: 1fr;
+                padding: 30px;
+                gap: 20px;
+            }
+            .session-details {
+                border-left: none;
+                border-top: 1px solid #222;
+                padding-left: 0;
+                padding-top: 20px;
+            }
         }
         .discipline-badges {
             display: flex;
@@ -946,88 +969,147 @@
         <div class="training-plan-grid">
             <!-- LUNES -->
             <div class="plan-day-card">
-                <h4>Lunes <div class="discipline-badges"><span class="discipline-badge badge-gym">Gym</span><span class="discipline-badge badge-run">Run</span></div></h4>
-                <div class="plan-activity">
-                    <span class="title">Gimnasio (Push)</span>
-                    <span class="desc">Pecho, Hombros y Tríceps. Enfoque en sobrecarga progresiva.</span>
+                <div class="day-info">
+                    <h4>Lunes</h4>
+                    <span class="duration-badge">⏱ 80 MIN TOTAL</span>
                 </div>
-                <div class="plan-activity">
-                    <span class="title">Carrera Suave</span>
-                    <span class="desc">30-40 min. Mantener ritmo conversacional para no agotar piernas.</span>
+                <div class="session-details">
+                    <div class="plan-activity">
+                        <span class="title">Gym (Push) • 40 min</span>
+                        <span class="desc">Rutina Matthews. Enfoque en fuerza máxima (Press banca, hombros, tríceps).</span>
+                    </div>
+                    <div class="plan-activity">
+                        <span class="title">Carrera Recuperación • 40 min</span>
+                        <span class="desc">Z2 constante. Ritmo conversacional para oxigenar músculos.</span>
+                    </div>
                 </div>
-                <div class="focus-tag">80% INTENSIDAD (Z2)</div>
+                <div class="discipline-badges">
+                    <span class="discipline-badge badge-gym">Gym</span>
+                    <span class="discipline-badge badge-run">Run</span>
+                </div>
             </div>
 
             <!-- MARTES -->
             <div class="plan-day-card">
-                <h4>Martes <div class="discipline-badges"><span class="discipline-badge badge-swim">Swim</span><span class="discipline-badge badge-bike">Bike</span></div></h4>
-                <div class="plan-activity">
-                    <span class="title">Natación (Clase)</span>
-                    <span class="desc">Intervalos intensos y técnica. Aprovechar el nado guiado.</span>
+                <div class="day-info">
+                    <h4>Martes</h4>
+                    <span class="duration-badge">⏱ 120 MIN TOTAL</span>
                 </div>
-                <div class="plan-activity">
-                    <span class="title">Ciclismo Suave</span>
-                    <span class="desc">Recuperación activa en Z1. Rodaje muy ligero.</span>
+                <div class="session-details">
+                    <div class="plan-activity">
+                        <span class="title">Natación (Clase) • 60 min</span>
+                        <span class="desc">Intervalos de intensidad variable y técnica de brazada.</span>
+                    </div>
+                    <div class="plan-activity">
+                        <span class="title">Ciclismo Suave • 60 min</span>
+                        <span class="desc">Z2 Resistencia aeróbica constante. Rodaje cómodo.</span>
+                    </div>
                 </div>
-                <div class="focus-tag">20% INTENSIDAD (Z4)</div>
+                <div class="discipline-badges">
+                    <span class="discipline-badge badge-swim">Swim</span>
+                    <span class="discipline-badge badge-bike">Bike</span>
+                </div>
             </div>
 
             <!-- MIÉRCOLES -->
             <div class="plan-day-card">
-                <h4>Miércoles <div class="discipline-badges"><span class="discipline-badge badge-gym">Gym</span><span class="discipline-badge badge-run">Run</span></div></h4>
-                <div class="plan-activity">
-                    <span class="title">Gimnasio (Pull)</span>
-                    <span class="desc">Peso Muerto, Espalda y Bíceps.</span>
+                <div class="day-info">
+                    <h4>Miércoles</h4>
+                    <span class="duration-badge">⏱ 110 MIN TOTAL</span>
                 </div>
-                <div class="plan-activity">
-                    <span class="title">Carrera de Intervalos</span>
-                    <span class="desc">Series cortas. Sesión clave para ganar velocidad.</span>
+                <div class="session-details">
+                    <div class="plan-activity">
+                        <span class="title">Gym (Pull) • 40 min</span>
+                        <span class="desc">Matthews. Peso muerto y tracción pesada.</span>
+                    </div>
+                    <div class="plan-activity">
+                        <span class="title">Run Intervals • 70 min</span>
+                        <span class="desc">15' Calent. + 4 x 8 min en Z4 (recup. 2' en Z1) + 10' Enfriamiento.</span>
+                    </div>
                 </div>
-                <div class="focus-tag">20% INTENSIDAD (Z4/5)</div>
+                <div class="discipline-badges">
+                    <span class="discipline-badge badge-gym">Gym</span>
+                    <span class="discipline-badge badge-run">Run</span>
+                </div>
             </div>
 
             <!-- JUEVES -->
             <div class="plan-day-card">
-                <h4>Jueves <div class="discipline-badges"><span class="discipline-badge badge-swim">Swim</span><span class="discipline-badge badge-bike">Bike</span></div></h4>
-                <div class="plan-activity">
-                    <span class="title">Natación (Clase)</span>
-                    <span class="desc">Enfoque en técnica y resistencia base.</span>
+                <div class="day-info">
+                    <h4>Jueves</h4>
+                    <span class="duration-badge">⏱ 120 MIN TOTAL</span>
                 </div>
-                <div class="plan-activity">
-                    <span class="title">Ciclismo Resistencia</span>
-                    <span class="desc">Rodaje constante en Z2. Construcción de volumen muscular.</span>
+                <div class="session-details">
+                    <div class="plan-activity">
+                        <span class="title">Natación (Clase) • 60 min</span>
+                        <span class="desc">Intervalos aeróbicos y enfoque en resistencia.</span>
+                    </div>
+                    <div class="plan-activity">
+                        <span class="title">Ciclismo Resistencia • 60 min</span>
+                        <span class="desc">Z2 constante. Enfoque en cadencia alta (85-95 rpm).</span>
+                    </div>
                 </div>
-                <div class="focus-tag">80% INTENSIDAD (Z2)</div>
+                <div class="discipline-badges">
+                    <span class="discipline-badge badge-swim">Swim</span>
+                    <span class="discipline-badge badge-bike">Bike</span>
+                </div>
             </div>
 
             <!-- VIERNES -->
-            <div class="plan-day-card" style="border-left: 4px solid var(--gym-color);">
-                <h4>Viernes <div class="discipline-badges"><span class="discipline-badge badge-gym">Gym</span></div></h4>
-                <div class="plan-activity">
-                    <span class="title">Gimnasio (Legs)</span>
-                    <span class="desc">Sentadillas y accesorios. Día pesado, evitar impacto aeróbico.</span>
+            <div class="plan-day-card">
+                <div class="day-info">
+                    <h4>Viernes</h4>
+                    <span class="duration-badge">⏱ 60 MIN TOTAL</span>
                 </div>
-                <div class="focus-tag">DESCANSO AERÓBICO</div>
+                <div class="session-details">
+                    <div class="plan-activity">
+                        <span class="title">Gym (Legs) • 40 min</span>
+                        <span class="desc">Matthews (Día pesado). Sentadillas y prensa.</span>
+                    </div>
+                    <div class="plan-activity">
+                        <span class="title">Spin Corto • 20 min</span>
+                        <span class="desc">Z1 (Muy suave) para "limpiar" las piernas tras las pesas.</span>
+                    </div>
+                </div>
+                <div class="discipline-badges">
+                    <span class="discipline-badge badge-gym">Gym</span>
+                    <span class="discipline-badge badge-bike">Bike</span>
+                </div>
             </div>
 
             <!-- SÁBADO -->
-            <div class="plan-day-card" style="border-left: 4px solid var(--bike-color);">
-                <h4>Sábado <div class="discipline-badges"><span class="discipline-badge badge-bike">Bike</span><span class="discipline-badge badge-run">Run</span></div></h4>
-                <div class="plan-activity">
-                    <span class="title">Entrenamiento "Brick"</span>
-                    <span class="desc">1.5h Bici + 20 min Correr. Transición fluida.</span>
+            <div class="plan-day-card">
+                <div class="day-info">
+                    <h4>Sábado</h4>
+                    <span class="duration-badge">⏱ 110 MIN TOTAL</span>
                 </div>
-                <div class="focus-tag">80% INTENSIDAD (Z2)</div>
+                <div class="session-details">
+                    <div class="plan-activity">
+                        <span class="title">Entrenamiento Brick • 110 min</span>
+                        <span class="desc">90 min Bici Z2 + Transición rápida + 20 min Carrera Z2.</span>
+                    </div>
+                </div>
+                <div class="discipline-badges">
+                    <span class="discipline-badge badge-bike">Bike</span>
+                    <span class="discipline-badge badge-run">Run</span>
+                </div>
             </div>
 
             <!-- DOMINGO -->
-            <div class="plan-day-card" style="border-left: 4px solid var(--bike-color);">
-                <h4>Domingo <div class="discipline-badges"><span class="discipline-badge badge-bike">Bike</span></div></h4>
-                <div class="plan-activity">
-                    <span class="title">Ciclismo Largo</span>
-                    <span class="desc">2.5h a 4h. Ganar resistencia muscular y eficiencia metabólica.</span>
+            <div class="plan-day-card">
+                <div class="day-info">
+                    <h4>Domingo</h4>
+                    <span class="duration-badge">⏱ 3h - 4h</span>
                 </div>
-                <div class="focus-tag">80% INTENSIDAD (Z2)</div>
+                <div class="session-details">
+                    <div class="plan-activity">
+                        <span class="title">Ciclismo Largo</span>
+                        <span class="desc">Z2 Resistencia: Incrementa 15 min cada semana hasta llegar a 4h. Quemar grasa.</span>
+                    </div>
+                </div>
+                <div class="discipline-badges">
+                    <span class="discipline-badge badge-bike">Bike</span>
+                </div>
             </div>
         </div>
     </div>
