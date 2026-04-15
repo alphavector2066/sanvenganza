@@ -1,6 +1,5 @@
 # Emma Velázquez - Shopify Development Roadmap 2026
-
-Este documento detalla la planificación estratégica y técnica para el desarrollo y optimización del sitio Shopify de **Emma Velázquez**. El objetivo es escalar el sitio actual hacia una plataforma omnicanal "vitaminada" que soporte nativamente operaciones de **Retail (B2C), Mayoreo (B2B) y Sistema de Rentas**, sin depender de exceso de aplicaciones de terceros que afecten el rendimiento.
+#Este documento detalla el plan de como llevar mi archivo de gym a la version final usable. 
 
 ---
 
@@ -11,12 +10,19 @@ Para soportar catálogos tan diferentes (Venta vs. Renta vs. Mayoreo) necesitamo
 
 *   **1.1. Arreglar como se ve la grafica de ejercicios:** Crear estructuras de datos nativas para:
    Prompt:
-###   En la pestaña metrica, tanto en pc como en movil la barra de desborda. Revisa y corrige el formato. En la pantalla debe verse maximo 1200 x 800 px en el movil la resolucion de un iphone 17 pro normal.
+###   De la hoja gym.html la pestaña METRICAS, tanto en pc como en movil la barra de desborda. Revisa y corrige el formato. En la pantalla debe verse maximo 1200 x 800 px en el movil la resolucion de un iphone 17 pro normal. Creo que el error es que hay que limitar el maximo de altura de la grafica.
 
 *   **1.2. Agregar registro de ejercicios de Triatlon ** Que se puedan registrar
 
 
+*   **1.2 Agregar contro por contraseña a la pagina:**
+## Agregar control de contraseña
 
+
+
+**1.2 Poner texto en verde:**
+
+**1.2 Poner texto en verde:**
 
 
 
