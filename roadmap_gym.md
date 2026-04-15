@@ -10,7 +10,8 @@ Este documento detalla la planificación estratégica y técnica para el desarro
 Para soportar catálogos tan diferentes (Venta vs. Renta vs. Mayoreo) necesitamos una base de datos impecable usando la tecnología nativa de Shopify 2.0.
 
 *   **1.1. Arreglar como se ve la grafica de ejercicios:** Crear estructuras de datos nativas para:
-   
+   Prompt:
+###   En la pestaña metrica, tanto en pc como en movil la barra de desborda. Revisa y corrige el formato. En la pantalla debe verse maximo 1200 x 800 px en el movil la resolucion de un iphone 17 pro normal.
 
 *   **1.2. Agregar registro de ejercicios de Triatlon ** Que se puedan registrar
 
